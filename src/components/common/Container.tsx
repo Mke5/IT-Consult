@@ -1,22 +1,16 @@
 import type { ReactNode } from "react";
 
-
-
-
 interface ContainerProps {
     children: ReactNode;
     className?: string;
 }
 
-
 const Container: React.FC<ContainerProps> = ({ children, className = "" }) => {
     return (
-      <div className={`w-full lg:w-[90%] mx-auto ${className}`}>
+      <div className={`w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 ${className}`}>
         {children}
       </div>
     );
 }
-
-
 
 export default Container

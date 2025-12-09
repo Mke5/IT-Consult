@@ -1,21 +1,49 @@
+import { useEffect, useState } from 'react'
 import Header from '../../components/common/Header'
 import Footer from '../../components/common/Footer'
 import Container from '../../components/common/Container'
 import HeroImage from '../../assets/images/heroimmmmg.svg'
 import Her0Inage2 from '../../assets/images/HeroImage2.svg'
 import Map from '../../assets/images/HugeGlobal.svg'
-import Image1 from '../../assets/images/image10.svg'
-import Image2 from '../../assets/images/image12.svg'
-import Image3 from '../../assets/images/image15.svg'
-import Image4 from '../../assets/images/image16.svg'
-import Image5 from '../../assets/images/image18.svg'
-import Image6 from '../../assets/images/image19.svg'
 import { PiHandshakeFill } from 'react-icons/pi'
 import { FaDumbbell, FaUsers } from 'react-icons/fa'
 import { HiOutlineStar } from 'react-icons/hi2'
 import { SiLibreofficewriter } from 'react-icons/si'
+import { api, type Service, type Testimonial, type Partner } from '../../lib/api'
 
 const HomePage = () => {
+  const [services, setServices] = useState<Service[]>([])
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([])
+  const [partners, setPartners] = useState<Partner[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [servicesData, testimonialsData, partnersData] = await Promise.all([
+          api.getServices(),
+          api.getTestimonials(),
+          api.getPartners(),
+        ])
+        console.log('Services fetched:', servicesData)
+        console.log('Testimonials fetched:', testimonialsData)
+        console.log('Partners fetched:', partnersData)
+        setServices(servicesData)
+        setTestimonials(testimonialsData)
+        setPartners(partnersData)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+        // Set empty arrays on error so UI shows "No services available" instead of loading forever
+        setServices([])
+        setTestimonials([])
+        setPartners([])
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchData()
+  }, [])
   return (
     <main className='flex flex-col min-h-screen'>
       <Header />
@@ -23,88 +51,88 @@ const HomePage = () => {
       <main className="grow w-full">
         <Container>
           {/* Hero section */}
-          <section className='lg:py-10 py-6 sm:py-8'>
-            <div className='container mx-auto px-4 sm:px-6 lg:px-0'>
-              <div className='flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12 items-stretch'>
+          <section className='py-8 sm:py-12 lg:py-16 xl:py-20'>
+            <div className='w-full'>
+              <div className='flex flex-col lg:flex-row gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-center lg:items-stretch'>
                 {/* Text Block */}
-                <div className='w-full lg:w-[60%] space-y-4 sm:space-y-6'>
-                  <h1 className='text-2xl sm:text-3xl lg:text-4xl font-bold leading-snug mt-0 sm:mt-2 lg:mt-3'>
+                <div className='w-full lg:w-[60%] space-y-5 sm:space-y-6 lg:space-y-8 flex flex-col justify-center'>
+                  <h1 className='text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight sm:leading-snug lg:leading-tight text-gray-900'>
                     At MyIT Consult Ltd, we co-design evidence-based strategies and digital solutions that empower resilient institutions and inclusive growth.
                   </h1>
-                  <p className='text-sm sm:text-base text-gray-700 leading-relaxed'>
+                  <p className='text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed max-w-2xl'>
                     We bridge data, strategy and technology to help institutions and innovators deliver measureable, sustainable impact.
                   </p>
 
-                  <button className="bg-red-600 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded hover:bg-red-700 transition cursor-pointer text-sm sm:text-base">
+                  <button className="bg-[#e4010c] text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-3.5 lg:py-4 rounded-md hover:bg-red-700 active:scale-95 transition-all duration-200 cursor-pointer text-sm sm:text-base lg:text-lg font-medium shadow-md hover:shadow-lg w-fit">
                     Learn More
                   </button>
 
-                  <div className="grid grid-cols-2 lg:flex lg:flex-row gap-4 lg:gap-0">
+                  <div className="grid grid-cols-2 lg:flex lg:flex-row gap-4 sm:gap-6 lg:gap-0 mt-6 sm:mt-8">
                     {/* Stat 1 */}
-                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-5 lg:border-r border-[#EEEFF2] lg:px-4 py-4">
-                      <FaDumbbell className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] lg:h-[55px] lg:w-[55px] rounded-full"/>
+                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:border-r border-[#EEEFF2] lg:px-4 xl:px-6 py-4 hover:bg-gray-50 rounded-lg lg:rounded-none transition-colors duration-200">
+                      <FaDumbbell className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] sm:h-[50px] sm:w-[50px] lg:h-[55px] lg:w-[55px] rounded-full transition-transform hover:scale-110"/>
                       <div>
-                        <div className="text-xl lg:text-[25px] font-[Rubik] font-bold text-red-600">90+</div>
-                        <div className="text-gray-600 font-[Rubik] font-normal text-base lg:text-[20px]">Workforce</div>
+                        <div className="text-xl sm:text-2xl lg:text-[25px] xl:text-3xl font-[Rubik] font-bold text-[#e4010c]">90+</div>
+                        <div className="text-gray-600 font-[Rubik] font-normal text-sm sm:text-base lg:text-lg xl:text-[20px]">Workforce</div>
                       </div>
                     </div>
 
                     {/* Stat 2 */}
-                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-5 lg:border-r border-[#EEEFF2] lg:px-4 py-4">
-                      <PiHandshakeFill className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] lg:h-[55px] lg:w-[55px] rounded-full"/>
+                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:border-r border-[#EEEFF2] lg:px-4 xl:px-6 py-4 hover:bg-gray-50 rounded-lg lg:rounded-none transition-colors duration-200">
+                      <PiHandshakeFill className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] sm:h-[50px] sm:w-[50px] lg:h-[55px] lg:w-[55px] rounded-full transition-transform hover:scale-110"/>
                       <div>
-                        <div className="text-xl lg:text-[25px] font-[Rubik] font-bold text-red-600">40+</div>
-                        <div className="text-gray-600 font-[Rubik] font-normal text-base lg:text-[20px]">Partnership</div>
+                        <div className="text-xl sm:text-2xl lg:text-[25px] xl:text-3xl font-[Rubik] font-bold text-[#e4010c]">40+</div>
+                        <div className="text-gray-600 font-[Rubik] font-normal text-sm sm:text-base lg:text-lg xl:text-[20px]">Partnership</div>
                       </div>
                     </div>
 
                     {/* Stat 3 */}
-                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-5 lg:border-r border-[#EEEFF2] lg:px-4 py-4">
-                      <FaUsers className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] lg:h-[55px] lg:w-[55px] rounded-full"/>
+                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:border-r border-[#EEEFF2] lg:px-4 xl:px-6 py-4 hover:bg-gray-50 rounded-lg lg:rounded-none transition-colors duration-200">
+                      <FaUsers className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] sm:h-[50px] sm:w-[50px] lg:h-[55px] lg:w-[55px] rounded-full transition-transform hover:scale-110"/>
                       <div>
-                        <div className="text-xl lg:text-[25px] font-[Rubik] font-bold text-red-600">1000+</div>
-                        <div className="text-gray-600 font-[Rubik] font-normal text-base lg:text-[20px]">Trainings</div>
+                        <div className="text-xl sm:text-2xl lg:text-[25px] xl:text-3xl font-[Rubik] font-bold text-[#e4010c]">1000+</div>
+                        <div className="text-gray-600 font-[Rubik] font-normal text-sm sm:text-base lg:text-lg xl:text-[20px]">Trainings</div>
                       </div>
                     </div>
 
                     {/* Stat 4 */}
-                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-5 lg:px-4 py-4">
-                      <SiLibreofficewriter className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] lg:h-[55px] lg:w-[55px] rounded-full"/>
+                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:px-4 xl:px-6 py-4 hover:bg-gray-50 rounded-lg lg:rounded-none transition-colors duration-200">
+                      <SiLibreofficewriter className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] sm:h-[50px] sm:w-[50px] lg:h-[55px] lg:w-[55px] rounded-full transition-transform hover:scale-110"/>
                       <div>
-                        <div className="text-xl lg:text-[25px] font-[Rubik] font-bold text-red-600">60+</div>
-                        <div className="text-gray-600 font-[Rubik] font-normal text-base lg:text-[20px]">Writeups</div>
+                        <div className="text-xl sm:text-2xl lg:text-[25px] xl:text-3xl font-[Rubik] font-bold text-[#e4010c]">60+</div>
+                        <div className="text-gray-600 font-[Rubik] font-normal text-sm sm:text-base lg:text-lg xl:text-[20px]">Writeups</div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className='w-full lg:w-[30%] overflow-hidden flex justify-center lg:justify-start'>
-                  <img src={HeroImage} alt="" className='h-[300px] sm:h-[380px] lg:h-[450px] w-auto object-contain'/>
+                <div className='w-full lg:w-[40%] overflow-hidden flex justify-center lg:justify-end'>
+                  <img src={HeroImage} alt="MyIT Consult Services" className='h-[280px] sm:h-[350px] lg:h-[450px] xl:h-[500px] w-auto object-contain transition-transform hover:scale-105 duration-500'/>
                 </div>
               </div>
             </div>
           </section>
 
           {/* About Us Section */}
-          <section className="py-20">
-            <div className="container mx-auto px-4">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="relative">
-                  <img src={Her0Inage2} className=''/>
+          <section className="py-12 sm:py-16 lg:py-20 xl:py-24">
+            <div className="w-full">
+              <div className="grid md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-center">
+                <div className="relative overflow-hidden rounded-lg">
+                  <img src={Her0Inage2} alt="About MyIT Consult" className='w-full h-auto object-cover transition-transform hover:scale-105 duration-500'/>
                 </div>
-                <div>
-                  <h2 className="text-4xl font-bold text-gray-900 mb-6">About Us</h2>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                <div className="space-y-4 sm:space-y-5 lg:space-y-6">
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">About Us</h2>
+                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                     MyIT Consult Ltd is a Nigerian‑rooted consulting firm with an expanding African footprint. We co‑design evidence‑based strategies, capacity‑building programmes and digital solutions to strengthen institutions and empower people. Our multi‑disciplinary team of strategists, data analysts, technologists and trainers works alongside governments, businesses and social enterprises to translate ideas into actionable interventions that foster inclusive growth.
                   </p>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                     We deliver research, monitoring and evaluation, policy innovation, leadership development and digital transformation services, with innovation at the core of every engagement. 
                   </p>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
+                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                     Through platforms like the MYIT Digital Academy and MYIT Insight Series, we equip professionals and institutions with the tools they need to thrive in a dynamic world
                   </p>
 
-                  <button className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 cursor-pointer transition">
+                  <button className="bg-[#e4010c] text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-md hover:bg-red-700 active:scale-95 transition-all duration-200 cursor-pointer text-sm sm:text-base font-medium shadow-md hover:shadow-lg mt-4">
                     Learn More
                   </button>
                 </div>
@@ -114,133 +142,137 @@ const HomePage = () => {
 
 
           {/* What We Do Section */}
-          <section className="py-12 sm:py-16 lg:py-20">
-            <div className="container mx-auto px-4 sm:px-6">
-              <div className="text-center mb-10 sm:mb-12 lg:mb-16">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">What We Do</h2>
-                <p className="text-sm sm:text-base text-gray-600 max-w-full sm:max-w-[596px] mx-auto px-4 sm:px-0">
+          <section className="py-12 sm:py-16 lg:py-20 xl:py-24 bg-gray-50">
+            <div className="w-full">
+              <div className="text-center mb-10 sm:mb-12 lg:mb-16 xl:mb-20">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6">What We Do</h2>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
                   We help organisations strengthen their systems, build capacity, and deliver better results through research and practical digital solutions
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-                {/* Card 1 */}
-                <div className="bg-white shadow-md rounded-xl p-5 sm:p-6 text-start hover:shadow-lg transition">
-                  <div className="w-12 h-12 sm:w-13 sm:h-13 bg-[#FFE5E5] rounded-lg mb-3 sm:mb-4 flex items-center justify-center">
-                    <HiOutlineStar size={24} className='sm:w-7 sm:h-7 text-[#E4010C]'/>
-                  </div>
-                  <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-2">Research and Evaluations</h3>
-                  <p className="text-gray-600 text-xs sm:text-sm">Driving Evidence-Based Development</p>
+              {loading ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="bg-white shadow-md rounded-xl p-5 sm:p-6 lg:p-8 animate-pulse">
+                      <div className="w-12 h-12 bg-gray-200 rounded-lg mb-4"></div>
+                      <div className="h-4 bg-gray-200 rounded mb-2"></div>
+                      <div className="h-3 bg-gray-200 rounded"></div>
+                    </div>
+                  ))}
                 </div>
-
-                {/* Card 2 */}
-                <div className="bg-white shadow-md rounded-xl p-5 sm:p-6 text-start hover:shadow-lg transition">
-                  <div className="w-12 h-12 sm:w-13 sm:h-13 bg-[#FFE5E5] rounded-lg mb-3 sm:mb-4 flex items-center justify-center">
-                    <HiOutlineStar size={24} className='sm:w-7 sm:h-7 text-[#E4010C]'/>
-                  </div>
-                  <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-2">System Strengthening & Organization Development</h3>
-                  <p className="text-gray-600 text-xs sm:text-sm">Enhancing institutional capacity</p>
+              ) : services.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+                  {services.map((service) => (
+                    <div key={service.id} className="bg-white shadow-md rounded-xl p-5 sm:p-6 lg:p-8 text-start hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-[#FFE5E5] rounded-lg mb-4 sm:mb-5 flex items-center justify-center group-hover:bg-[#e4010c] transition-colors duration-300">
+                        <HiOutlineStar size={24} className='sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-[#E4010C] group-hover:text-white transition-colors duration-300'/>
+                      </div>
+                      <h3 className="font-bold text-base sm:text-lg lg:text-xl text-gray-900 mb-2 lg:mb-3">{service.title}</h3>
+                      <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-relaxed">{service.description || ''}</p>
+                    </div>
+                  ))}
                 </div>
-
-                {/* Card 3 */}
-                <div className="bg-white shadow-md rounded-xl p-5 sm:p-6 text-start hover:shadow-lg transition">
-                  <div className="w-12 h-12 sm:w-13 sm:h-13 bg-[#FFE5E5] rounded-lg mb-3 sm:mb-4 flex items-center justify-center">
-                    <HiOutlineStar size={24} className='sm:w-7 sm:h-7 text-[#E4010C]'/>
-                  </div>
-                  <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-2">
-                    Professional Development and Career Strengthening
-                  </h3>
-                  <p className="text-gray-600 text-xs sm:text-sm">
-                    Professional Development & Career Strengthening
-                  </p>
-                </div>
-
-                {/* Card 4 */}
-                <div className="bg-white shadow-md rounded-xl p-5 sm:p-6 text-start hover:shadow-lg transition">
-                  <div className="w-12 h-12 sm:w-13 sm:h-13 bg-[#FFE5E5] rounded-lg mb-3 sm:mb-4 flex items-center justify-center">
-                    <HiOutlineStar size={24} className='sm:w-7 sm:h-7 text-[#E4010C]'/>
-                  </div>
-                  <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-2">Information Technology Solutions</h3>
-                  <p className="text-gray-600 text-xs sm:text-sm">
-                    From concept to launch, we create stunning, user-centric websites.
-                  </p>
-                </div>
-              </div>
+              ) : (
+                <div className="text-center text-gray-500 py-8">No services available</div>
+              )}
             </div>
           </section>
 
-          <section className="py-12 sm:py-16 lg:py-20">
-            <div className="container mx-auto px-4 sm:px-6">
-              <div className="text-center mb-8 sm:mb-10 lg:mb-12 max-w-full sm:max-w-[555px] mx-auto">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 px-4 sm:px-0">
+          <section className="py-12 sm:py-16 lg:py-20 xl:py-24">
+            <div className="w-full">
+              <div className="text-center mb-8 sm:mb-10 lg:mb-12 xl:mb-16 max-w-3xl mx-auto">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6">
                   Working With Organizations Around the World
                 </h2>
-                <p className="text-sm sm:text-base text-gray-600 px-4 sm:px-0">
+                <p className="text-sm sm:text-base lg:text-lg text-gray-600">
                   We help organizations improve systems, build capacity, and drive impact wherever they operate
                 </p>
               </div>
 
-              <div className="relative h-48 sm:h-64 lg:h-96 rounded-lg overflow-hidden mb-6 sm:mb-8">
+              <div className="relative h-48 sm:h-64 lg:h-80 xl:h-96 rounded-lg overflow-hidden mb-8 sm:mb-10 lg:mb-12 shadow-lg">
                 <div className="absolute inset-0">
                   <img src={Map} alt="Global Map" className='w-full h-full object-contain'/>
                 </div>
               </div>
 
               {/* Partner Logos - Grid Layout */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:flex lg:justify-center gap-4 sm:gap-6 lg:gap-8 items-center">
-                <div className="h-12 sm:h-16 lg:h-[78px] flex items-center justify-center">
-                  <img src={Image3} alt="Partner 1" className='h-full w-auto object-contain'/>
+              {loading ? (
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:flex lg:justify-center gap-4 sm:gap-6 lg:gap-8 xl:gap-12 items-center">
+                  {[1, 2, 3, 4, 5, 6].map((i) => (
+                    <div key={i} className="h-12 sm:h-16 lg:h-[78px] xl:h-24 w-24 bg-gray-200 animate-pulse rounded"></div>
+                  ))}
                 </div>
-                <div className="h-12 sm:h-16 lg:h-[78px] flex items-center justify-center">
-                  <img src={Image2} alt="Partner 2" className='h-full w-auto object-contain'/>
+              ) : partners.length > 0 ? (
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:flex lg:justify-center gap-4 sm:gap-6 lg:gap-8 xl:gap-12 items-center">
+                  {partners.map((partner) => (
+                    <div key={partner.id} className="h-12 sm:h-16 lg:h-[78px] xl:h-24 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-300">
+                      {partner.logo ? (
+                        <img src={partner.logo} alt={partner.name} className='h-full w-auto object-contain'/>
+                      ) : (
+                        <span className="text-gray-400 text-sm">{partner.name}</span>
+                      )}
+                    </div>
+                  ))}
                 </div>
-                <div className="h-12 sm:h-16 lg:h-[78px] flex items-center justify-center">
-                  <img src={Image6} alt="Partner 3" className='h-full w-auto object-contain'/>
-                </div>
-                <div className="h-12 sm:h-16 lg:h-[78px] flex items-center justify-center">
-                  <img src={Image5} alt="Partner 4" className='h-full w-auto object-contain'/>
-                </div>
-                <div className="h-12 sm:h-16 lg:h-[78px] flex items-center justify-center">
-                  <img src={Image1} alt="Partner 5" className='h-full w-auto object-contain'/>
-                </div>
-                <div className="h-12 sm:h-16 lg:h-[78px] flex items-center justify-center">
-                  <img src={Image4} alt="Partner 6" className='h-full w-auto object-contain'/>
-                </div>
-              </div>
+              ) : (
+                <div className="text-center text-gray-500 py-8">No partners available</div>
+              )}
             </div>
           </section>
 
 
           {/* Testimonials Section */}
-          <section className="py-12 sm:py-16 lg:py-20">
-            <div className="container mx-auto px-4 sm:px-6">
-              <div className="text-center mb-8 sm:mb-10 lg:mb-12 max-w-full sm:max-w-[589px] mx-auto">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 px-4 sm:px-0">What people say about us</h2>
-                <p className="text-gray-600">
+          <section className="py-12 sm:py-16 lg:py-20 xl:py-24 bg-gray-50">
+            <div className="w-full">
+              <div className="text-center mb-8 sm:mb-10 lg:mb-12 xl:mb-16 max-w-3xl mx-auto">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6">What people say about us</h2>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-600">
                   With lots of unique blocks, you can easily build a page without coding. Build your next landing page
                 </p>
               </div>
 
-              <div className="flex gap-6 overflow-x-auto w-full p-5" style={{ scrollbarWidth: "none" }}>
-              <style>
-                {`
-                  div::-webkit-scrollbar {
-                    display: none;
-                  }
-                `}
-              </style>
-                {[1, 2, 3, 4, 5, 6, 7].map((item) => (
-                  <div key={item} className="bg-white border border-gray-200 p-6 rounded-lg min-w-[280px]">
-                    <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-gray-300 rounded-full"></div>
+              {loading ? (
+                <div className="flex gap-4 sm:gap-6 overflow-x-auto w-full pb-4">
+                  {[1, 2, 3].map((i) => (
+                    <div key={i} className="bg-white border border-gray-200 p-6 sm:p-8 rounded-xl min-w-[280px] sm:min-w-[320px] lg:min-w-[350px] animate-pulse flex-shrink-0">
+                      <div className="w-12 h-12 bg-gray-200 rounded-full mb-4"></div>
+                      <div className="h-4 bg-gray-200 rounded mb-2"></div>
+                      <div className="h-4 bg-gray-200 rounded w-3/4"></div>
                     </div>
-                    <p className="text-gray-600 text-sm mb-4">
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                    </p>
-                    <p className="font-semibold text-gray-900 text-sm">Person Name</p>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              ) : testimonials.length > 0 ? (
+                <div className="flex gap-4 sm:gap-6 overflow-x-auto w-full pb-4 scrollbar-hide" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+                  <style>
+                    {`
+                      .scrollbar-hide::-webkit-scrollbar {
+                        display: none;
+                      }
+                    `}
+                  </style>
+                  {testimonials.map((testimonial) => (
+                    <div key={testimonial.id} className="bg-white border border-gray-200 p-6 sm:p-8 rounded-xl min-w-[280px] sm:min-w-[320px] lg:min-w-[350px] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex-shrink-0">
+                      <div className="flex items-center mb-4">
+                        {testimonial.image ? (
+                          <img src={testimonial.image} alt={testimonial.name} className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover"/>
+                        ) : (
+                          <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-300 rounded-full"></div>
+                        )}
+                      </div>
+                      <p className="text-gray-600 text-sm sm:text-base mb-4 leading-relaxed">
+                        "{testimonial.testimonial}"
+                      </p>
+                      <p className="font-semibold text-gray-900 text-sm sm:text-base">{testimonial.name}</p>
+                      {testimonial.role && (
+                        <p className="text-gray-500 text-xs sm:text-sm">{testimonial.role}{testimonial.company ? ` at ${testimonial.company}` : ''}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center text-gray-500 py-8">No testimonials available</div>
+              )}
             </div>
           </section>
         </Container>

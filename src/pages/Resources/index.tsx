@@ -1,31 +1,28 @@
+import { useEffect, useState } from 'react'
 import Container from '@/components/common/Container';
 import Footer from '@/components/common/Footer';
 import Header from '@/components/common/Header';
-import { Calendar, Share2, Tag, User } from 'lucide-react';
-import React, { useState } from 'react'
+import { api, type Resource } from '@/lib/api'
+import { Link } from 'react-router-dom'
 
 const Resources = () => {
+  const [resources, setResources] = useState<Resource[]>([])
+  const [loading, setLoading] = useState(true)
 
-  const articles = [
-    {
-      id: 1,
-      title: 'The challenges and opportunities of working in the tech industry as a young person',
-      description: 'The role of mentors and support networks in helping young people succeed in the tech industry',
-      image: 'bg-gradient-to-br from-gray-300 to-gray-400'
-    },
-    {
-      id: 2,
-      title: 'The challenges and opportunities of working in the tech industry as a young person',
-      description: 'The role of mentors and support networks in helping young people succeed in the tech industry',
-      image: 'bg-gradient-to-br from-gray-300 to-gray-400'
-    },
-    {
-      id: 3,
-      title: 'The challenges and opportunities of working in the tech industry as a young person',
-      description: 'The role of mentors and support networks in helping young people succeed in the tech industry',
-      image: 'bg-gradient-to-br from-gray-300 to-gray-400'
+  useEffect(() => {
+    const fetchResources = async () => {
+      try {
+        const data = await api.getResources()
+        setResources(data)
+      } catch (error) {
+        console.error('Error fetching resources:', error)
+      } finally {
+        setLoading(false)
+      }
     }
-  ];
+
+    fetchResources()
+  }, [])
 
   return (
     <main className='flex flex-col min-h-screen'>
@@ -39,64 +36,103 @@ const Resources = () => {
               <h2 className="text-2xl font-bold text-[#E4010C]">Resources</h2>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-8">
-              {/* Left Column - Featured Article */}
-              <div>
-                <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
-                  {/* Featured Image */}
-                  <div className="relative h-80 bg-gradient-to-br from-blue-400 via-blue-500 to-purple-600 overflow-hidden">
-                    {/* Tech/AI themed overlay effect */}
-                    <div className="absolute inset-0 opacity-20">
-                      <div className="absolute top-10 left-10 w-20 h-20 border-2 border-white rounded-full"></div>
-                      <div className="absolute top-20 right-20 w-16 h-16 border-2 border-white rounded-full"></div>
-                      <div className="absolute bottom-20 left-1/3 w-24 h-24 border-2 border-white rounded-full"></div>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-8">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">
-                      Algorithmic Accountability and Legal Frameworks: Assessing Liability and Responsibility in Artificial Intelligence Systems.
-                    </h3>
-                    <p className="text-gray-600 mb-6 leading-relaxed">
-                      The rapid advancement of artificial intelligence (AI) has led to its integration into various aspects of our lives, from autonomous vehicles and healthcare to financial systems and online content recommendations. While AI promises significant benefits, it also raises...
-                    </p>
-                    <button className="border-2 border-red-600 text-red-600 px-6 py-2 rounded hover:bg-red-600 hover:text-white transition-colors duration-300 font-medium">
-                      View More
-                    </button>
+            {loading ? (
+              <div className="grid lg:grid-cols-2 gap-8">
+                <div className="bg-white rounded-lg overflow-hidden shadow-sm animate-pulse">
+                  <div className="h-80 bg-gray-200"></div>
+                  <div className="p-8 space-y-4">
+                    <div className="h-6 bg-gray-200 rounded"></div>
+                    <div className="h-4 bg-gray-200 rounded"></div>
+                    <div className="h-4 bg-gray-200 rounded w-3/4"></div>
                   </div>
                 </div>
+                <div className="space-y-6">
+                  {[1, 2, 3].map((i) => (
+                    <div key={i} className="bg-white rounded-lg overflow-hidden shadow-sm animate-pulse h-48"></div>
+                  ))}
+                </div>
               </div>
-
-              {/* Right Column - Article List */}
-              <div className="space-y-6">
-                {articles.map((article) => (
-                  <div key={article.id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
-                    <div className="flex flex-col sm:flex-row">
-                      {/* Image */}
-                      <div className={`${article.image} w-full sm:w-48 h-48 sm:h-auto flex-shrink-0`}>
-                        {/* Placeholder image */}
-                      </div>
+            ) : resources.length > 0 ? (
+              <div className="grid lg:grid-cols-2 gap-8">
+                {/* Left Column - Featured Article */}
+                <div>
+                  {resources[0] && (
+                    <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+                      {/* Featured Image */}
+                      {resources[0].image ? (
+                        <div className="relative h-80 overflow-hidden">
+                          <img src={resources[0].image} alt={resources[0].title} className="w-full h-full object-cover" />
+                        </div>
+                      ) : (
+                        <div className="relative h-80 bg-gradient-to-br from-blue-400 via-blue-500 to-purple-600 overflow-hidden">
+                          <div className="absolute inset-0 opacity-20">
+                            <div className="absolute top-10 left-10 w-20 h-20 border-2 border-white rounded-full"></div>
+                            <div className="absolute top-20 right-20 w-16 h-16 border-2 border-white rounded-full"></div>
+                            <div className="absolute bottom-20 left-1/3 w-24 h-24 border-2 border-white rounded-full"></div>
+                          </div>
+                        </div>
+                      )}
 
                       {/* Content */}
-                      <div className="p-6 flex flex-col justify-between flex-1">
-                        <div>
-                          <h3 className="text-lg font-bold text-gray-900 mb-3 leading-tight">
-                            {article.title}
-                          </h3>
-                          <p className="text-gray-600 text-sm mb-4">
-                            {article.description}
-                          </p>
-                        </div>
-                        <button className="border-2 border-red-600 text-red-600 px-5 py-2 rounded hover:bg-red-600 hover:text-white transition-colors duration-300 font-medium text-sm self-start">
+                      <div className="p-8">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">
+                          {resources[0].title}
+                        </h3>
+                        <p className="text-gray-600 mb-6 leading-relaxed">
+                          {resources[0].description || resources[0].content?.substring(0, 150) + '...' || 'No description available.'}
+                        </p>
+                        <Link 
+                          to={`/resource/${resources[0].id}`}
+                          className="inline-block border-2 border-red-600 text-red-600 px-6 py-2 rounded hover:bg-red-600 hover:text-white transition-colors duration-300 font-medium"
+                        >
                           View More
-                        </button>
+                        </Link>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  )}
+                </div>
+
+                {/* Right Column - Article List */}
+                <div className="space-y-6">
+                  {resources.slice(1).map((resource) => (
+                    <div key={resource.id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+                      <div className="flex flex-col sm:flex-row">
+                        {/* Image */}
+                        {resource.image ? (
+                          <div className="w-full sm:w-48 h-48 flex-shrink-0">
+                            <img src={resource.image} alt={resource.title} className="w-full h-full object-cover" />
+                          </div>
+                        ) : (
+                          <div className="w-full sm:w-48 h-48 bg-gradient-to-br from-gray-300 to-gray-400 flex-shrink-0"></div>
+                        )}
+
+                        {/* Content */}
+                        <div className="p-6 flex flex-col justify-between flex-1">
+                          <div>
+                            <h3 className="text-lg font-bold text-gray-900 mb-3 leading-tight">
+                              {resource.title}
+                            </h3>
+                            <p className="text-gray-600 text-sm mb-4">
+                              {resource.description || resource.content?.substring(0, 100) + '...' || 'No description available.'}
+                            </p>
+                          </div>
+                          <Link 
+                            to={`/resource/${resource.id}`}
+                            className="border-2 border-red-600 text-red-600 px-5 py-2 rounded hover:bg-red-600 hover:text-white transition-colors duration-300 font-medium text-sm self-start"
+                          >
+                            View More
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="text-center text-gray-500 py-12">
+                No resources available
+              </div>
+            )}
           </div>
         </section>
 

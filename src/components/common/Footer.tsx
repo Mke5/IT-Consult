@@ -6,9 +6,9 @@ const Footer = () => {
     return (
         <footer className="w-full bg-white">
             {/* Newsletter & Contact Section */}
-            <section className="w-full bg-[#2c2b2a] py-8 sm:py-12">
+            <section className="w-full bg-[#2c2b2a] py-8 sm:py-12 lg:py-16">
                 <Container>
-                    <div className="flex flex-col gap-8 sm:gap-[42px] justify-center items-center container mx-auto px-4 sm:px-6 lg:px-0">
+                    <div className="flex flex-col gap-8 sm:gap-10 lg:gap-[42px] justify-center items-center">
                         {/* Newsletter and Office Address */}
                         <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-6 sm:gap-8">
                             {/* Office Address */}
@@ -36,20 +36,20 @@ const Footer = () => {
                             </div>
 
                             {/* Newsletter Signup */}
-                            <div className="w-full lg:w-[44%] bg-[#3a3b3c] rounded-[14px] p-6 sm:p-8 lg:p-10 lg:pt-[58px] lg:pb-[58px] flex justify-center items-center">
+                            <div className="w-full lg:w-[44%] bg-[#3a3b3c] rounded-[14px] p-6 sm:p-8 lg:p-10 lg:pt-[58px] lg:pb-[58px] flex justify-center items-center transition-transform hover:scale-[1.02] duration-300">
                                 {/* Newsletter form here */}
-                                <form className="w-full flex flex-col sm:flex-row gap-3 sm:gap-4">
+                                <form className="w-full flex flex-col sm:flex-row gap-3 sm:gap-4" onSubmit={(e) => e.preventDefault()}>
                                     {/* Email Input */}
                                     <input
                                         type="email"
                                         placeholder="Email"
-                                        className="flex-1 px-4 py-2.5 sm:py-3 rounded-md text-sm sm:text-base text-white bg-transparent border border-white placeholder:text-white focus:outline-none "
+                                        className="flex-1 px-4 py-2.5 sm:py-3 lg:py-4 rounded-md text-sm sm:text-base text-white bg-transparent border border-white/50 placeholder:text-white/70 focus:outline-none focus:border-white focus:ring-2 focus:ring-white/20 transition-all"
                                         required
                                     />
                                     {/* Subscribe Button */}
                                     <button
                                         type="submit"
-                                        className="px-6 py-2.5 sm:py-3 rounded-md bg-[#e4010c] hover:bg-red-700 transition text-white font-medium text-base sm:text-lg cursor-pointer whitespace-nowrap"
+                                        className="px-6 sm:px-8 py-2.5 sm:py-3 lg:py-4 rounded-md bg-[#e4010c] hover:bg-red-700 active:scale-95 transition-all duration-200 text-white font-medium text-sm sm:text-base lg:text-lg cursor-pointer whitespace-nowrap shadow-md hover:shadow-lg"
                                     >
                                         Subscribe
                                     </button>

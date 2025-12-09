@@ -1,13 +1,36 @@
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import Container from '@/components/common/Container';
 import Footer from '@/components/common/Footer';
 import Header from '@/components/common/Header';
 import RatingStars from '@/components/ui/Start';
 import Image1 from '../../assets/images/firstimage.webp'
 import Image2 from '../../assets/images/secondimage.webp'
-import { FaClock, FaUser } from 'react-icons/fa';
+import { FaClock } from 'react-icons/fa';
 import { BsFileEarmarkTextFill } from "react-icons/bs";
+import { api, type Resource } from '@/lib/api'
 
 const ResourceDetails = () => {
+  const { id } = useParams<{ id: string }>()
+  const [resource, setResource] = useState<Resource | null>(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchResource = async () => {
+      if (!id) return
+      
+      try {
+        const data = await api.getResource(parseInt(id))
+        setResource(data)
+      } catch (error) {
+        console.error('Error fetching resource:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchResource()
+  }, [id])
   
   const categories = [
     { name: '4:00PM 6:00PM', count: 'Start Date' },
@@ -27,38 +50,77 @@ const ResourceDetails = () => {
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
               {/* Left Column - Main Content */}
               <div className="font-[Inter] lg:col-span-2">
-                {/* Featured Image */}
-                <div className="mb-6">
-                  <div className="w-full h-64 sm:h-80 rounded-lg overflow-hidden">
-                    <img src={Image1} className="w-full h-full object-cover" />
+                {loading ? (
+                  <div className="animate-pulse space-y-4">
+                    <div className="w-full h-64 sm:h-80 bg-gray-200 rounded-lg"></div>
+                    <div className="h-8 bg-gray-200 rounded w-3/4"></div>
+                    <div className="h-4 bg-gray-200 rounded"></div>
                   </div>
-                </div>
+                ) : resource ? (
+                  <>
+                    {/* Featured Image */}
+                    <div className="mb-6">
+                      <div className="w-full h-64 sm:h-80 rounded-lg overflow-hidden">
+                        <img 
+                          src={resource.image || Image1} 
+                          alt={resource.title}
+                          className="w-full h-full object-cover" 
+                        />
+                      </div>
+                    </div>
 
-                {/* Article Meta */}
-                <div className="mb-4">
-                  <RatingStars rating={4.7} />
-                </div>
+                    {/* Article Meta */}
+                    <div className="mb-4">
+                      <RatingStars rating={4.7} />
+                    </div>
 
-                {/* Article Title */}
-                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-                  Basic Monitoring & Evaluation, Research And Learning
-                </h1>
+                    {/* Article Title */}
+                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+                      {resource.title}
+                    </h1>
+                  </>
+                ) : (
+                  <div className="text-center text-gray-500 py-12">
+                    Resource not found
+                  </div>
+                )}
 
-                {/* Article Info */}
-                <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-sm text-gray-600 mb-6 pb-6 border-b border-gray-200">
-                  <div className="flex items-center gap-2">
-                    <BsFileEarmarkTextFill className="w-4 h-4 text-[#E4010C]" />
-                    <span>Lesson 10</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <FaClock className="w-4 h-4 text-[#E4010C]" />
-                    <span>9:00AM - 01:00PM</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <FaUser className="w-4 h-4 text-[#E4010C]" />
-                    <span>Students 20+</span>
-                  </div>
-                </div>
+                {resource && (
+                  <>
+                    {/* Article Info */}
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-sm text-gray-600 mb-6 pb-6 border-b border-gray-200">
+                      {resource.type && (
+                        <div className="flex items-center gap-2">
+                          <BsFileEarmarkTextFill className="w-4 h-4 text-[#E4010C]" />
+                          <span>{resource.type}</span>
+                        </div>
+                      )}
+                      <div className="flex items-center gap-2">
+                        <FaClock className="w-4 h-4 text-[#E4010C]" />
+                        <span>{new Date(resource.created_at).toLocaleDateString()}</span>
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    {resource.description && (
+                      <div className="mb-6">
+                        <p className="text-gray-600 text-lg leading-relaxed">
+                          {resource.description}
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Content */}
+                    {resource.content && (
+                      <div className="prose max-w-none mb-8">
+                        <div 
+                          className="text-gray-700 leading-relaxed"
+                          dangerouslySetInnerHTML={{ __html: resource.content }}
+                        />
+                      </div>
+                    )}
+                  </>
+                )}
 
                 {/* Buttons */}
                 <div className="mb-8 flex flex-wrap gap-3">

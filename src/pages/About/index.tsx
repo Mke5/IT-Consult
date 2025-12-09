@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import Header from '../../components/common/Header'
 import Footer from '../../components/common/Footer';
 import { FaDumbbell, FaUsers } from 'react-icons/fa';
@@ -10,19 +11,26 @@ import image2 from '../../assets/images/AboutUs.png'
 import userImage1 from '../../assets/images/userImage.png'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
 import CheckProjects from '@/components/common/CheckProjects';
+import { api, type TeamMember } from '../../lib/api';
 
 const AboutPage = () => {
+  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([])
+  const [loading, setLoading] = useState(true)
 
-  const team = [
-    { name: "John Doe", role: "Senior Research Analyst", image: userImage1 },
-    { name: "Sarah Ben", role: "Program Evaluation Expert", image: userImage1 },
-    { name: "John Doe", role: "Senior Research Analyst", image: userImage1 },
-    { name: "Sarah Ben", role: "Program Evaluation Expert", image: userImage1 },
-    { name: "Sarah Ben", role: "Program Evaluation Expert", image: userImage1 },
-    { name: "John Doe", role: "Senior Research Analyst", image: userImage1 },
-    { name: "Michael Red", role: "Communications Lead", image: userImage1 },
-    { name: "Michael Red", role: "Communications Lead", image: userImage1 },
-  ];
+  useEffect(() => {
+    const fetchTeamMembers = async () => {
+      try {
+        const data = await api.getTeamMembers()
+        setTeamMembers(data)
+      } catch (error) {
+        console.error('Error fetching team members:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchTeamMembers()
+  }, [])
 
   return (
     <main className="flex flex-col min-h-screen">
@@ -408,33 +416,47 @@ const AboutPage = () => {
                 </div>
 
                 {/* Team Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 container mx-auto px-3">
-                  {team.map((member, index) => (
-                    <div key={index} className="group">
-                      <div className="p-2 lg:p-4 bg-[#FFE5E5] rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300">
-
-                        {/* Responsive image with aspect ratio */}
-                        <div className="w-full aspect-[3/4] overflow-hidden rounded-md">
-                          <img 
-                            src={member.image}
-                            alt={member.name}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-
-                        <div className="pt-2 text-center">
-                          <h3 className="font-bold text-gray-900 text-[15px] sm:text-[16px] lg:text-lg mb-1">
-                            {member.name}
-                          </h3>
-                          <p className="text-gray-600 text-[12px] sm:text-[13px] lg:text-sm">
-                            {member.role}
-                          </p>
-                        </div>
-
+                {loading ? (
+                  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 container mx-auto px-3">
+                    {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                      <div key={i} className="p-2 lg:p-4 bg-[#FFE5E5] rounded-lg animate-pulse">
+                        <div className="w-full aspect-[3/4] bg-gray-200 rounded-md mb-2"></div>
+                        <div className="h-4 bg-gray-200 rounded mb-1"></div>
+                        <div className="h-3 bg-gray-200 rounded w-3/4 mx-auto"></div>
                       </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
+                ) : teamMembers.length > 0 ? (
+                  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 container mx-auto px-3">
+                    {teamMembers.map((member) => (
+                      <div key={member.id} className="group">
+                        <div className="p-2 lg:p-4 bg-[#FFE5E5] rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300">
+
+                          {/* Responsive image with aspect ratio */}
+                          <div className="w-full aspect-[3/4] overflow-hidden rounded-md">
+                            <img 
+                              src={member.image || userImage1}
+                              alt={member.name}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+
+                          <div className="pt-2 text-center">
+                            <h3 className="font-bold text-gray-900 text-[15px] sm:text-[16px] lg:text-lg mb-1">
+                              {member.name}
+                            </h3>
+                            <p className="text-gray-600 text-[12px] sm:text-[13px] lg:text-sm">
+                              {member.role}
+                            </p>
+                          </div>
+
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center text-gray-500 py-8">No team members available</div>
+                )}
 
               </div>
             </div>
