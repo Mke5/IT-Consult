@@ -129,7 +129,7 @@ const HomePage = () => {
 
                 <div className='w-full lg:w-[40%] relative overflow-hidden p-4'>
                   <img src={HeroImage} alt="MyIT Consult Services" className='w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105'/>
-                  <img src={oval} alt='decoration' className='w-36 absolute bottom-1/4 right-3/5'/>
+                  <img src={oval} alt='decoration' className='absolute w-20 sm:w-28 lg:w-36 bottom-2/6 sm:bottom-10 lg:bottom-1/4 left-1/8 translate-x-1/5 lg:left-auto lg:right-3/5 lg:translate-x-0 pointer-events-none'/>
                 </div>
               </div>
             </div>
