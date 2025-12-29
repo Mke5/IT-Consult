@@ -30,11 +30,7 @@ export interface Service {
   id: number;
   title: string;
   description: string | null;
-  icon: string | null;
-  content: string | null;
-  order: number;
-  created_at: string;
-  updated_at: string;
+  icon: string;
 }
 
 export interface TeamMember {

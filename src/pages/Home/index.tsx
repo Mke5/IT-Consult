@@ -9,15 +9,42 @@ import Her0Inage2 from '../../assets/images/HeroImage2.svg'
 import oval from '../../assets/images/Oval.svg'
 import Map from '../../assets/images/HugeGlobal.svg'
 import { PiHandshakeFill } from 'react-icons/pi'
-import { HiOutlineStar } from 'react-icons/hi2'
 import usersIcon from '../../assets/images/UsersFour.svg'
 import dumbelIcon from '../../assets/images/Barbell.svg'
 import wordTextIcon from '../../assets/images/ArticleNyTimes.svg'
+import Monitor from '../../assets/images/Monitor.svg'
+import Star from '../../assets/images/Star.svg'
 import { api, type Service, type Testimonial, type Partner } from '../../lib/api'
 import { Link } from 'react-router-dom'
+import { ArrowUpRight } from 'lucide-react'
 
 const HomePage = () => {
-  const [services, setServices] = useState<Service[]>([])
+  const services:Service[] = [
+    {
+      id: 1,
+      title: "Research and Evaluation",
+      description: "Driving Evidence-Based Development",
+      icon: Star, // replace with icon name or path
+    },
+    {
+      id: 2,
+      title: "System Strengthening & Organization Development",
+      description: "Enhancing Institutional Capacity",
+      icon: Star,
+    },
+      {
+        id: 3,
+        title: "Professional Development and Career Strengthening",
+        description: "Professional Development & Career Strengthening",
+        icon: Monitor,
+      },
+      {
+        id: 4,
+        title: "Information Technology Solutions",
+        description: "From concept to launch, we create stunning, user-centric websites",
+        icon: Monitor,
+      },
+  ]
   const [testimonials, setTestimonials] = useState<Testimonial[]>([])
   const [partners, setPartners] = useState<Partner[]>([])
   const [loading, setLoading] = useState(true)
@@ -172,7 +199,7 @@ const HomePage = () => {
           <section className="py-12 sm:py-16 lg:py-20 xl:py-20">
             <div className="w-full">
               <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="relative w-full max-w-[39rem] mx-auto">
+                <div className="relative w-full max-w-156 mx-auto">
                   {/* Image */}
                   <div className="overflow-hidden rounded-lg">
                     <img
@@ -218,7 +245,7 @@ const HomePage = () => {
 
 
           {/* What We Do Section */}
-          <section className="py-12 sm:py-16 lg:py-20 xl:py-24 bg-gray-50">
+          <section className="py-12 sm:py-16 lg:py-20 xl:py-24">
             <div className="w-full">
               <div className="text-center mb-10 sm:mb-12 lg:mb-16 xl:mb-20">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900 mb-3">What We Do</h2>
@@ -238,14 +265,18 @@ const HomePage = () => {
                   ))}
                 </div>
               ) : services.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 font-[inter] ">
                   {services.map((service) => (
-                    <div key={service.id} className="bg-white shadow-md rounded-xl p-5 sm:p-6 lg:p-8 text-start hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-[#FFE5E5] rounded-lg mb-4 sm:mb-5 flex items-center justify-center group-hover:bg-[#e4010c] transition-colors duration-300">
-                        <HiOutlineStar size={24} className='sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-[#E4010C] group-hover:text-white transition-colors duration-300'/>
+                    <div key={service.id} className="bg-white shadow-md p-5 text-start hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                      <div className="w-12 h-12 bg-[#FFE5E5] rounded-lg mb-4 sm:mb-5 flex items-center justify-center transition-colors duration-300">
+                        <img src={service.icon} alt="" className='w-6 h-6 text-[#E4010C] group-hover:text-white transition-colors duration-300' />
                       </div>
-                      <h3 className="font-bold text-base sm:text-lg lg:text-xl text-gray-900 mb-2 lg:mb-3">{service.title}</h3>
+                      <h3 className="font-semibold text-base sm:text-lg lg:text-xl text-gray-900 mb-1">{service.title}</h3>
                       <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-relaxed">{service.description || ''}</p>
+
+                      <div className='w-12 h-12 bg-[#E4010C] mt-3 rounded-full flex items-center justify-center'>
+                        <ArrowUpRight size={38} color='white'/>
+                      </div>
                     </div>
                   ))}
                 </div>
