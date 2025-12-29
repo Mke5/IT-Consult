@@ -3,7 +3,10 @@ import Header from '../../components/common/Header'
 import Footer from '../../components/common/Footer'
 import Container from '../../components/common/Container'
 import HeroImage from '../../assets/images/heroimmmmg.svg'
+import Her0Inage3 from '../../assets/images/HeroImage3.png'
+import Her0Inage4 from '../../assets/images/HeroImage4.png'
 import Her0Inage2 from '../../assets/images/HeroImage2.svg'
+import oval from '../../assets/images/Oval.svg'
 import Map from '../../assets/images/HugeGlobal.svg'
 import { PiHandshakeFill } from 'react-icons/pi'
 import { FaDumbbell, FaUsers } from 'react-icons/fa'
@@ -16,6 +19,24 @@ const HomePage = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([])
   const [partners, setPartners] = useState<Partner[]>([])
   const [loading, setLoading] = useState(true)
+
+  const images = [Her0Inage2, Her0Inage4, Her0Inage3];
+
+  const [current, setCurrent] = useState(0);
+  const nextSlide = () => {
+    setCurrent((current + 1) % images.length);
+  };
+
+  const prevSlide = () => {
+    setCurrent((current - 1 + images.length) % images.length);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [current]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,19 +72,19 @@ const HomePage = () => {
       <main className="grow w-full">
         <Container>
           {/* Hero section */}
-          <section className='py-8 sm:py-12 lg:py-16 xl:py-20'>
+          <section className=''>
             <div className='w-full'>
-              <div className='flex flex-col lg:flex-row gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-center lg:items-stretch'>
+              <div className='flex flex-col lg:flex-row items-center lg:items-stretch'>
                 {/* Text Block */}
-                <div className='w-full lg:w-[60%] space-y-5 sm:space-y-6 lg:space-y-8 flex flex-col justify-center'>
-                  <h1 className='text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight sm:leading-snug lg:leading-tight text-gray-900'>
+                <div className='w-full lg:w-[60%] space-y-5 sm:space-y-2 lg:space-y-3 flex flex-col justify-center py-10 pt-20'>
+                  <h1 className='text-2xl sm:text-3xl lg:text-3xl xl:text-3xl font-medium leading-tight sm:leading-snug lg:leading-tight text-gray-900'>
                     At MyIT Consult Ltd, we co-design evidence-based strategies and digital solutions that empower resilient institutions and inclusive growth.
                   </h1>
-                  <p className='text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed max-w-2xl'>
+                  <p className='text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed max-w-2xl sm:-mt-3 font-[inter] font-medium'>
                     We bridge data, strategy and technology to help institutions and innovators deliver measureable, sustainable impact.
                   </p>
 
-                  <button className="bg-[#e4010c] text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-3.5 lg:py-4 rounded-md hover:bg-red-700 active:scale-95 transition-all duration-200 cursor-pointer text-sm sm:text-base lg:text-lg font-medium shadow-md hover:shadow-lg w-fit">
+                  <button className="bg-[#e4010c] text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-3.5 lg:py-4 rounded-md hover:bg-red-700 active:scale-95 transition-all duration-200 cursor-pointer text-sm sm:text-base lg:text-lg font-[inter] font-medium shadow-md hover:shadow-lg w-fit">
                     Learn More
                   </button>
 
@@ -106,23 +127,58 @@ const HomePage = () => {
                   </div>
                 </div>
 
-                <div className='w-full lg:w-[40%] overflow-hidden flex justify-center lg:justify-end'>
-                  <img src={HeroImage} alt="MyIT Consult Services" className='h-[280px] sm:h-[350px] lg:h-[450px] xl:h-[500px] w-auto object-contain transition-transform hover:scale-105 duration-500'/>
+                <div className='w-full lg:w-[40%] relative overflow-hidden p-4'>
+                  <img src={HeroImage} alt="MyIT Consult Services" className='w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105'/>
+                  <img src={oval} alt='decoration' className='w-36 absolute bottom-1/4 right-3/5'/>
                 </div>
               </div>
             </div>
           </section>
 
           {/* About Us Section */}
-          <section className="py-12 sm:py-16 lg:py-20 xl:py-24">
+          <section className="py-12 sm:py-16 lg:py-20 xl:py-20">
             <div className="w-full">
               <div className="grid md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-center">
-                <div className="relative overflow-hidden rounded-lg">
-                  <img src={Her0Inage2} alt="About MyIT Consult" className='w-full h-auto object-cover transition-transform hover:scale-105 duration-500'/>
+                <div className="relative w-full max-w-4xl mx-auto">
+                  {/* Image */}
+                  <div className="overflow-hidden rounded-lg">
+                    <img
+                      src={images[current]}
+                      alt={`Slide ${current + 1}`}
+                      className="w-full h-96 sm:h-[28rem] lg:h-[32rem] object-cover transition-transform duration-500 hover:scale-105"
+                    />
+                  </div>
+
+                  {/* Controls */}
+                  <button
+                    onClick={prevSlide}
+                    className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/30 text-white w-10 h-10 flex items-center justify-center rounded-full"
+                  >
+                    &#8592;
+                  </button>
+                  <button
+                    onClick={nextSlide}
+                    className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/30 text-white w-10 h-10 flex items-center justify-center rounded-full"
+                  >
+                    &#8594;
+                  </button>
+
+                  {/* Dots */}
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                    {images.map((_, index) => (
+                      <span
+                        key={index}
+                        className={`w-3 h-3 rounded-full cursor-pointer ${
+                          index === current ? "bg-red-600" : "bg-white/60"
+                        }`}
+                        onClick={() => setCurrent(index)}
+                      ></span>
+                    ))}
+                  </div>
                 </div>
                 <div className="space-y-4 sm:space-y-5 lg:space-y-6">
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">About Us</h2>
-                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900">About Us</h2>
+                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-[inter]">
                     MyIT Consult Ltd is a Nigerian‑rooted consulting firm with an expanding African footprint. We co‑design evidence‑based strategies, capacity‑building programmes and digital solutions to strengthen institutions and empower people. Our multi‑disciplinary team of strategists, data analysts, technologists and trainers works alongside governments, businesses and social enterprises to translate ideas into actionable interventions that foster inclusive growth.
                   </p>
                   <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
@@ -145,8 +201,8 @@ const HomePage = () => {
           <section className="py-12 sm:py-16 lg:py-20 xl:py-24 bg-gray-50">
             <div className="w-full">
               <div className="text-center mb-10 sm:mb-12 lg:mb-16 xl:mb-20">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6">What We Do</h2>
-                <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900 mb-3">What We Do</h2>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto font-[inter]">
                   We help organisations strengthen their systems, build capacity, and deliver better results through research and practical digital solutions
                 </p>
               </div>
@@ -181,19 +237,17 @@ const HomePage = () => {
 
           <section className="py-12 sm:py-16 lg:py-20 xl:py-24">
             <div className="w-full">
-              <div className="text-center mb-8 sm:mb-10 lg:mb-12 xl:mb-16 max-w-3xl mx-auto">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6">
+              <div className="text-center mb-8 sm:mb-10 lg:mb-12 xl:mb-16 max-w-xl mx-auto">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900 mb-3">
                   Working With Organizations Around the World
                 </h2>
-                <p className="text-sm sm:text-base lg:text-lg text-gray-600">
+                <p className="text-sm sm:text-base lg:text-lg text-gray-600 font-[inter]">
                   We help organizations improve systems, build capacity, and drive impact wherever they operate
                 </p>
               </div>
 
-              <div className="relative h-48 sm:h-64 lg:h-80 xl:h-96 rounded-lg overflow-hidden mb-8 sm:mb-10 lg:mb-12 shadow-lg">
-                <div className="absolute inset-0">
-                  <img src={Map} alt="Global Map" className='w-full h-full object-contain'/>
-                </div>
+              <div className="h-full rounded-lg overflow-hidden mb-8 sm:mb-10 lg:mb-12 flex justify-center">
+                <img src={Map} alt="Global Map" className='w-3xl h-full object-center'/>
               </div>
 
               {/* Partner Logos - Grid Layout */}
@@ -226,8 +280,8 @@ const HomePage = () => {
           <section className="py-12 sm:py-16 lg:py-20 xl:py-24 bg-gray-50">
             <div className="w-full">
               <div className="text-center mb-8 sm:mb-10 lg:mb-12 xl:mb-16 max-w-3xl mx-auto">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6">What people say about us</h2>
-                <p className="text-sm sm:text-base lg:text-lg text-gray-600">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900 mb-3">What people say about us</h2>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-600 font-[inter]">
                   With lots of unique blocks, you can easily build a page without coding. Build your next landing page
                 </p>
               </div>

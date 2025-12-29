@@ -75,7 +75,7 @@ const CheckProjects = () => {
             <h2 className="text-2xl md:text-3xl font-medium text-gray-900 mb-2">
               Check our Projects
             </h2>
-            <p className="text-gray-600 text-sm md:text-base">
+            <p className="text-gray-600 text-sm md:text-base font-[inter]">
               Take a look at some of our recent projects to see how we've helped
               Organizations, Governments and Agencies.
             </p>

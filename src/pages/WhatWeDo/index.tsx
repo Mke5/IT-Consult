@@ -1,18 +1,19 @@
 import Footer from '../../components/common/Footer';
 import Header from '../../components/common/Header';
 import Container from '../../components/common/Container';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
 import { FaDumbbell, FaUsers } from 'react-icons/fa';
 import { PiHandshakeFill } from 'react-icons/pi';
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from "@/components/ui/accordion"
 import Image1 from '../../assets/images/heroImage3.svg'
 import CheckProjects from '@/components/common/CheckProjects';
+import { useState } from 'react';
 
 const WhatWeDo = () => {
+    const [openItem, setOpenItem] = useState<string>("item-1");
+    
+    const handleChange = (value: string) => {
+    setOpenItem((prev) => (prev === value ? '' : value));
+    };
     return (
         <div className="flex flex-col min-h-screen">
             <Header/>    
@@ -86,7 +87,7 @@ const WhatWeDo = () => {
                     </section>
 
                 
-                    {/* Who We Are Section */}
+                    {/* What We Do Section */}
                     <section className="py-6 sm:py-8 lg:py-10 flex flex-col gap-6 sm:gap-8 lg:gap-10">
                         <div className="container mx-auto px-4 sm:px-6">
                             <div className="text-center mb-2 sm:mb-3">
@@ -126,203 +127,233 @@ const WhatWeDo = () => {
                         <Accordion
                             type="single"
                             collapsible
-                            defaultValue="item-1"
-                            className="w-full divide-y container mx-auto px-4 sm:px-6"
+                            value={openItem}
+                            onValueChange={handleChange}
+                            className="w-full container mx-auto space-y-4 px-4 sm:px-6"
                         >
-                            {/* ITEM 1 */}
-                            <AccordionItem value="item-1" className='mb-3 sm:mb-4'>
-                            <AccordionTrigger
-                                className="
-                                px-4 sm:px-6 lg:px-10 rounded-md py-3 sm:py-4 lg:py-5 
-                                text-sm sm:text-base font-medium 
-                                transition border border-[#818C96]
-                                data-[state=open]:bg-red-600 data-[state=open]:text-white
-                                hover:data-[state=closed]:bg-red-50
-                                text-left
-                                "
-                            >
-                                Impact & Rapid Need Assessment
-                            </AccordionTrigger>
 
-                            <AccordionContent
+                            {/* ITEM 1 */}
+                            <AccordionItem value="item-1" className='border border-[#818C96] rounded-md overflow-hidden'>
+                                <AccordionTrigger
                                 className="
-                                px-4 sm:px-6 pb-4 sm:pb-5 pt-2 
-                                text-zinc-700 leading-relaxed 
-                                flex flex-col gap-3 sm:gap-4 text-balance
-                                bg-red-50/60 data-[state=open]:bg-red-600/10
-                                transition-colors rounded-md border-none
-                                text-sm sm:text-base
+                                    px-10 py-5 pt-5 text-base font-medium w-full text-left
+                                    flex justify-between items-center
+                                    bg-white
+                                    data-[state=open]:bg-red-600 data-[state=open]:text-white
                                 "
-                            >
+                                >
+                                <div className="flex items-center gap-3 text-xl">
+                                    <span className='text-3xl'>01</span>
+                                    <span>Impact & Rapid Need Assessment</span>
+                                </div>
+
+                                <span className={` ml-2 text-3xl font-bold w-10 h-10 flex items-center justify-center rounded-full leading-none border ${openItem !== 'item-1' ? 'bg-[#F3F3F3]' : '' }`}>
+                                    {openItem === "item-1" ? "-" : "+"}
+                                </span>
+                                </AccordionTrigger>
+
+                                <AccordionContent
+                                className="
+                                    p-10 pt-2 
+                                    text-white leading-relaxed 
+                                    flex flex-col gap-4 text-balance
+                                    bg-red-50/60 data-[state=open]:bg-red-600
+                                    transition-colors border-none
+                                "
+                                >
                                 <p>
-                                We Provide comprehensive research, monitoring, and evaluation services to ensure programs are strategically designed, effectively implemented, and impactful. Our expertise include:
-                                <ul className="list-disc pl-5 sm:pl-6 space-y-1.5 sm:space-y-2 mt-2">
-                                    <li>Impact Assessment & Programs Evaluations: Measuring, ensuring accountability, and optimizing program strategies.</li>
+                                    We Provide comprehensive research, monitoring, and evaluation services to ensure programs are strategically designed, effectively implemented, and impactful. Our exprtise include:
+                                    <ul className="list-disc pl-6 space-y-2">
+                                    <li>Impact Assessment & Programs Evaluations: Maeasuring, ensuring accountability, and optimizing program strategies.</li>
                                     <li>Theory of Change & Result-Based Management: Designing frameworks that drive sustainable outcomes</li>
-                                    <li>Humanitarian Response & Rapid Needs Assessments: Supporting organizations in crisis settings to enhance resilience and emergency response</li>
-                                </ul>
+                                    <li>Humanitarian Response & Rapid Needs Assessments: Supporting organizations in crisis settings to enhance resillience and emergency response</li>
+                                    </ul>
                                 </p>
                                 <p>
-                                Through advanced analytics, participatory, and real-time insights, we empower clients to make informed decisions, optimize resources, and maximize their impact.
+                                    Through advanced analytics, participatory, and real-time insights, we empower clients to make informed decisions, optimize resources, and maximize their impact.
                                 </p>
-                            </AccordionContent>
+                                </AccordionContent>
                             </AccordionItem>
 
                             {/* ITEM 2 */}
-                            <AccordionItem value="item-2" className='mb-3 sm:mb-4'>
-                            <AccordionTrigger
+                            <AccordionItem value="item-2" className='border border-[#818C96] rounded-md overflow-hidden'>
+                                <AccordionTrigger
                                 className="
-                                px-4 sm:px-6 lg:px-10 rounded-md py-3 sm:py-4 lg:py-5 
-                                text-sm sm:text-base font-medium 
-                                transition border border-[#818C96]
-                                data-[state=open]:bg-red-600 data-[state=open]:text-white
-                                hover:data-[state=closed]:bg-red-50
-                                text-left
+                                    px-10 py-5 pt-5 text-base font-medium w-full text-left
+                                    flex justify-between items-center
+                                    bg-white
+                                    data-[state=open]:bg-red-600 data-[state=open]:text-white
                                 "
-                            >
-                                Baseline, Midline, and Endline Evaluations
-                            </AccordionTrigger>
+                                >
+                                <div className="flex items-center gap-3 text-xl">
+                                    <span className='text-3xl'>02</span>
+                                    <span>Baseline, Midline, and Endline Evaluations</span>
+                                </div>
+                                <span className={` ml-2 text-3xl font-bold w-10 h-10 flex items-center justify-center rounded-full leading-none border ${openItem !== 'item-2' ? 'bg-[#F3F3F3]' : '' }`}>
+                                    {openItem === "item-2" ? "-" : "+"}
+                                </span>
+                                </AccordionTrigger>
 
-                            <AccordionContent
+                                <AccordionContent
                                 className="
-                                px-4 sm:px-6 pb-4 sm:pb-5 pt-2 
-                                text-zinc-700 leading-relaxed 
-                                flex flex-col gap-3 sm:gap-4 text-balance
-                                bg-red-50/60 data-[state=open]:bg-red-600/10
-                                transition-colors
-                                text-sm sm:text-base
+                                    p-10 pt-2 
+                                    text-white leading-relaxed 
+                                    flex flex-col gap-4 text-balance
+                                    bg-red-50/60 data-[state=open]:bg-red-600
+                                    transition-colors border-none
                                 "
-                            >
+                                >
                                 <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae tempore debitis reprehenderit! Quisquam in incidunt quasi atque assumenda deleniti obcaecati nemo, minima est dolore voluptate corporis quos odit commodi! Provident molestias iusto deserunt eaque aperiam tempora amet dolor facere magnam sequi ad, sint praesentium reiciendis delectus blanditiis nam sunt sed.
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae tempore debitis reprehenderit! Quisquam in incidunt quasi atque assumenda deleniti obcaecati nemo, minima est dolore voluptate corporis quos odit commodi! Provident molestias iusto deserunt eaque aperiam tempora amet dolor facere magnam sequi ad, sint praesentium reiciendis delectus blanditiis nam sunt sed.
                                 </p>
-                            </AccordionContent>
+                                </AccordionContent>
                             </AccordionItem>
 
                             {/* ITEM 3 */}
-                            <AccordionItem value="item-3" className='mb-3 sm:mb-4'>
-                            <AccordionTrigger
+                            <AccordionItem value="item-3" className='border border-[#818C96] rounded-md overflow-hidden'>
+                                <AccordionTrigger
                                 className="
-                                px-4 sm:px-6 lg:px-10 rounded-md py-3 sm:py-4 lg:py-5 
-                                text-sm sm:text-base font-medium 
-                                transition border border-[#818C96]
-                                data-[state=open]:bg-red-600 data-[state=open]:text-white
-                                hover:data-[state=closed]:bg-red-50
-                                text-left
+                                    px-10 py-5 pt-5 text-base font-medium w-full text-left
+                                    flex justify-between items-center
+                                    bg-white
+                                    data-[state=open]:bg-red-600 data-[state=open]:text-white
                                 "
-                            >
-                                Third-Party Monitoring
-                            </AccordionTrigger>
+                                >
+                                <div className="flex items-center gap-3 text-xl">
+                                    <span className='text-3xl'>03</span>
+                                    <span>Third-Party Monitoring</span>
+                                </div>
 
-                            <AccordionContent
+                                <span className={` ml-2 text-3xl font-bold w-10 h-10 flex items-center justify-center rounded-full leading-none border ${openItem !== 'item-3' ? 'bg-[#F3F3F3]' : '' }`}>
+                                    {openItem === "item-3" ? "-" : "+"}
+                                </span>
+                                
+                                </AccordionTrigger>
+
+                                <AccordionContent
                                 className="
-                                px-4 sm:px-6 pb-4 sm:pb-5 pt-2 
-                                text-zinc-700 leading-relaxed 
-                                flex flex-col gap-3 sm:gap-4 text-balance
-                                bg-red-50/60 data-[state=open]:bg-red-600/10
-                                transition-colors
-                                text-sm sm:text-base
+                                    p-10 pt-2 
+                                    text-white leading-relaxed 
+                                    flex flex-col gap-4 text-balance
+                                    bg-red-50/60 data-[state=open]:bg-red-600
+                                    transition-colors border-none
                                 "
-                            >
+                                >
                                 <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, eaque? Eligendi, velit. Laborum rerum qui facere corporis deleniti possimus harum facilis adipisci, sint exercitationem iste! Labore modi animi dolorum, corrupti ex neque provident doloribus quibusdam ipsa inventore dolores veniam eos reprehenderit mollitia iusto ut ea corporis nostrum voluptatibus totam! Dolores.
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, eaque? Eligendi, velit. Laborum rerum qui facere corporis deleniti possimus harum facilis adipisci, sint exercitationem iste! Labore modi animi dolorum, corrupti ex neque provident doloribus quibusdam ipsa inventore dolores veniam eos reprehenderit mollitia iusto ut ea corporis nostrum voluptatibus totam! Dolores.
                                 </p>
-                            </AccordionContent>
+                                </AccordionContent>
                             </AccordionItem>
 
                             {/* ITEM 4 */}
-                            <AccordionItem value="item-4" className='mb-3 sm:mb-4'>
-                            <AccordionTrigger
-                                className="
-                                px-4 sm:px-6 lg:px-10 rounded-md py-3 sm:py-4 lg:py-5 
-                                text-sm sm:text-base font-medium 
-                                transition border border-[#818C96]
-                                data-[state=open]:bg-red-600 data-[state=open]:text-white
-                                hover:data-[state=closed]:bg-red-50
-                                text-left
-                                "
-                            >
-                                Media Monitoring
-                            </AccordionTrigger>
+                            <AccordionItem value="item-4" className='border border-[#818C96] rounded-md overflow-hidden'>
+                                <AccordionTrigger
+                                    className="
+                                    px-10 py-5 pt-5 text-base font-medium w-full text-left
+                                    flex justify-between items-center
+                                    bg-white
+                                    data-[state=open]:bg-red-600 data-[state=open]:text-white
+                                    "
+                                >
+                                    <div className="flex items-center gap-3 text-xl">
+                                    <span className='text-3xl'>04</span>
+                                    <span>Media Monitoring</span>
+                                    </div>
 
-                            <AccordionContent
-                                className="
-                                px-4 sm:px-6 pb-4 sm:pb-5 pt-2 
-                                text-zinc-700 leading-relaxed 
-                                flex flex-col gap-3 sm:gap-4 text-balance
-                                bg-red-50/60 data-[state=open]:bg-red-600/10
-                                transition-colors
-                                text-sm sm:text-base
-                                "
-                            >
-                                <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, eaque? Eligendi, velit. Laborum rerum qui facere corporis deleniti possimus harum facilis adipisci, sint exercitationem iste! Labore modi animi dolorum, corrupti ex neque provident doloribus quibusdam ipsa inventore dolores veniam eos reprehenderit mollitia iusto ut ea corporis nostrum voluptatibus totam! Dolores.
-                                </p>
-                            </AccordionContent>
+                                    <span className={` ml-2 text-3xl font-bold w-10 h-10 flex items-center justify-center rounded-full leading-none border ${openItem !== 'item-4' ? 'bg-[#F3F3F3]' : '' }`}>
+                                    {openItem === "item-4" ? "-" : "+"}
+                                    </span>
+                                    
+                                </AccordionTrigger>
+
+                                <AccordionContent
+                                    className="
+                                        p-10 pt-2 
+                                        text-white leading-relaxed 
+                                        flex flex-col gap-4 text-balance
+                                        bg-red-50/60 data-[state=open]:bg-red-600
+                                        transition-colors border-none
+                                    "
+                                >
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, eaque? Eligendi, velit. Laborum rerum qui facere corporis deleniti possimus harum facilis adipisci, sint exercitationem iste! Labore modi animi dolorum, corrupti ex neque provident doloribus quibusdam ipsa inventore dolores veniam eos reprehenderit mollitia iusto ut ea corporis nostrum voluptatibus totam! Dolores.
+                                    </p>
+                                </AccordionContent>
                             </AccordionItem>
 
-                            {/* ITEM 5 */}
-                            <AccordionItem value="item-5" className='mb-3 sm:mb-4'>
-                            <AccordionTrigger
-                                className="
-                                px-4 sm:px-6 lg:px-10 rounded-md py-3 sm:py-4 lg:py-5 
-                                text-sm sm:text-base font-medium 
-                                transition border border-[#818C96]
-                                data-[state=open]:bg-red-600 data-[state=open]:text-white
-                                hover:data-[state=closed]:bg-red-50
-                                text-left
-                                "
-                            >
-                                Scoping Study
-                            </AccordionTrigger>
 
-                            <AccordionContent
-                                className="
-                                px-4 sm:px-6 pb-4 sm:pb-5 pt-2 
-                                text-zinc-700 leading-relaxed 
-                                flex flex-col gap-3 sm:gap-4 text-balance
-                                bg-red-50/60 data-[state=open]:bg-red-600/10
-                                transition-colors
-                                text-sm sm:text-base
-                                "
-                            >
-                                <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, eaque? Eligendi, velit. Laborum rerum qui facere corporis deleniti possimus harum facilis adipisci, sint exercitationem iste! Labore modi animi dolorum, corrupti ex neque provident doloribus quibusdam ipsa inventore dolores veniam eos reprehenderit mollitia iusto ut ea corporis nostrum voluptatibus totam! Dolores.
-                                </p>
-                            </AccordionContent>
+                            {/* ITEM 5 */}
+                            <AccordionItem value="item-5" className='border border-[#818C96] rounded-md overflow-hidden'>
+                                <AccordionTrigger
+                                    className="
+                                    px-10 py-5 pt-5 text-base font-medium w-full text-left
+                                    flex justify-between items-center
+                                    bg-white
+                                    data-[state=open]:bg-red-600 data-[state=open]:text-white
+                                    "
+                                >
+                                    <div className="flex items-center gap-3 text-xl">
+                                    <span className='text-3xl'>05</span>
+                                    <span>Scoping Study</span>
+                                    </div>
+
+                                    <span className={` ml-2 text-3xl font-bold w-10 h-10 flex items-center justify-center rounded-full leading-none border ${openItem !== 'item-5' ? 'bg-[#F3F3F3]' : '' }`}>
+                                    {openItem === "item-5" ? "-" : "+"}
+                                    </span>
+                                    
+                                </AccordionTrigger>
+
+                                <AccordionContent
+                                    className="
+                                    p-10 pt-2 
+                                    text-white leading-relaxed 
+                                    flex flex-col gap-4 text-balance
+                                    bg-red-50/60 data-[state=open]:bg-red-600
+                                    transition-colors border-none
+                                    "
+                                >
+                                    <p>
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, eaque? Eligendi, velit. Laborum rerum qui facere corporis deleniti possimus harum facilis adipisci, sint exercitationem iste! Labore modi animi dolorum, corrupti ex neque provident doloribus quibusdam ipsa inventore dolores veniam eos reprehenderit mollitia iusto ut ea corporis nostrum voluptatibus totam! Dolores.
+                                    </p>
+                                </AccordionContent>
                             </AccordionItem>
 
                             {/* ITEM 6 */}
-                            <AccordionItem value="item-6" className='mb-3 sm:mb-4'>
-                            <AccordionTrigger
+                            <AccordionItem value="item-6" className='border border-[#818C96] rounded-md overflow-hidden'>
+                                <AccordionTrigger
                                 className="
-                                px-4 sm:px-6 lg:px-10 rounded-md py-3 sm:py-4 lg:py-5 
-                                text-sm sm:text-base font-medium 
-                                transition border border-[#818C96]
-                                data-[state=open]:bg-red-600 data-[state=open]:text-white
-                                hover:data-[state=closed]:bg-red-50
-                                text-left
+                                    px-10 py-5 pt-5 text-base font-medium w-full text-left
+                                    flex justify-between items-center
+                                    bg-white
+                                    data-[state=open]:bg-red-600 data-[state=open]:text-white
                                 "
-                            >
-                                Target Audience Analysis
-                            </AccordionTrigger>
+                                >
+                                <div className="flex items-center gap-3 text-xl">
+                                    <span className='text-3xl'>06</span>
+                                    <span>Target Audience Analysis</span>
+                                </div>
 
-                            <AccordionContent
-                                className="
-                                px-4 sm:px-6 pb-4 sm:pb-5 pt-2 
-                                text-zinc-700 leading-relaxed 
-                                flex flex-col gap-3 sm:gap-4 text-balance
-                                bg-red-50/60 data-[state=open]:bg-red-600/10
-                                transition-colors
-                                text-sm sm:text-base
-                                "
-                            >
-                                <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, eaque? Eligendi, velit. Laborum rerum qui facere corporis deleniti possimus harum facilis adipisci, sint exercitationem iste! Labore modi animi dolorum, corrupti ex neque provident doloribus quibusdam ipsa inventore dolores veniam eos reprehenderit mollitia iusto ut ea corporis nostrum voluptatibus totam! Dolores.
-                                </p>
-                            </AccordionContent>
+                                <span className={` ml-2 text-3xl font-bold w-10 h-10 flex items-center justify-center rounded-full leading-none border ${openItem !== 'item-6' ? 'bg-[#F3F3F3]' : '' }`}>
+                                    {openItem === "item-6" ? "-" : "+"}
+                                </span>
+                                
+                                </AccordionTrigger>
+
+                                <AccordionContent
+                                    className="
+                                        px-4 pb-5 pt-2 
+                                        text-zinc-700 leading-relaxed 
+                                        flex flex-col gap-4 text-balance
+                                        bg-red-50/60 data-[state=open]:bg-red-600/10
+                                        transition-colors
+                                    "
+                                >
+                                    <p>
+                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, eaque? Eligendi, velit. Laborum rerum qui facere corporis deleniti possimus harum facilis adipisci, sint exercitationem iste! Labore modi animi dolorum, corrupti ex neque provident doloribus quibusdam ipsa inventore dolores veniam eos reprehenderit mollitia iusto ut ea corporis nostrum voluptatibus totam! Dolores.
+                                    </p>
+                                </AccordionContent>
                             </AccordionItem>
-                        </Accordion>
+                            </Accordion>
                         </section>
                 
                     <CheckProjects />

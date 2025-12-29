@@ -9,13 +9,19 @@ import Hero1 from '../../assets/images/image20.webp'
 import image1 from '../../assets/images/image14.svg'
 import image2 from '../../assets/images/AboutUs.png'
 import userImage1 from '../../assets/images/userImage.png'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
 import CheckProjects from '@/components/common/CheckProjects';
 import { api, type TeamMember } from '../../lib/api';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
 
 const AboutPage = () => {
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([])
   const [loading, setLoading] = useState(true)
+
+  const [openItem, setOpenItem] = useState<string>("item-1");
+    
+  const handleChange = (value: string) => {
+    setOpenItem((prev) => (prev === value ? '' : value));
+  };
 
   useEffect(() => {
     const fetchTeamMembers = async () => {
@@ -71,7 +77,7 @@ const AboutPage = () => {
                   </h1>
 
                   {/* Paragraph */}
-                  <p className="text-[14px] sm:text-[15px] lg:text-md font-normal text-black font-['Poppins'] leading-6 tracking-[0.5px] text-justify w-full mb-6">
+                  <p className="text-[14px] sm:text-[15px] lg:text-md font-normal text-black font-[inter] leading-6 tracking-[0.5px] text-justify w-full mb-6">
                     MyIT Consult Ltd is a Nigerian-rooted consulting firm with an expanding African footprint. 
                     We co-design evidence-based strategies, capacity-building programmes and digital solutions 
                     to strengthen institutions and empower people. Our multi-disciplinary team of strategists, 
@@ -104,7 +110,7 @@ const AboutPage = () => {
                     <h2 className="text-[22px] sm:text-[26px] lg:text-[28px] font-medium text-[#282829] font-['Space_Grotesk'] leading-[28px] sm:leading-[32px] lg:leading-[36px]">
                       Our Mission
                     </h2>
-                    <p className="text-[14px] sm:text-[15px] lg:text-[16px] font-normal text-black font-['Poppins'] leading-6 tracking-[0.5px] text-justify mb-6">
+                    <p className="text-[14px] sm:text-[15px] lg:text-[16px] font-normal text-black font-[inter] leading-6 tracking-[0.5px] text-justify mb-6">
                       To partner with public, private and social sector leaders to generate and apply data-driven evidence,
                       strengthen people and institutions, and deploy technology solutions that improve decision-making and
                       advance sustainable development.
@@ -116,7 +122,7 @@ const AboutPage = () => {
                     <h2 className="text-[22px] sm:text-[26px] lg:text-[28px] font-medium text-[#282829] font-['Space_Grotesk'] leading-[28px] sm:leading-[32px] lg:leading-[36px]">
                       Our Vision
                     </h2>
-                    <p className="text-[14px] sm:text-[15px] lg:text-[16px] font-normal text-black font-['Poppins'] leading-6 tracking-[0.5px] text-justify mb-6">
+                    <p className="text-[14px] sm:text-[15px] lg:text-[16px] font-normal text-black font-[inter] leading-6 tracking-[0.5px] text-justify mb-6">
                       "A world where decisions are powered by evidence, institutions are resilient, and development is
                       sustainable for all."
                     </p>
@@ -171,210 +177,135 @@ const AboutPage = () => {
               <div className="flex flex-col gap-10">
 
                 <div className="flex flex-col gap-1 justify-start items-center px-1">
-                  <h2 className="text-[28px] font-medium text-[#282829] font-['Space_Grotesk'] leading-[36px] text-center">
+                  <h2 className="text-[28px] font-medium text-[#282829] font-['Space_Grotesk'] leading-[36px] text-center mb-2">
                     Our Commitment
                   </h2>
-                  <p className="text-[14px] sm:text-[15px] lg:text-[16px] font-normal text-[#4e5664] font-['Inter'] leading-[18px] sm:leading-[19px] lg:leading-[20px] text-center">
+                  <p className="text-[14px] sm:text-[15px] lg:text-[16px] font-normal text-[#4e5664] font-[inter] leading-[18px] sm:leading-[19px] lg:leading-[20px] text-center">
                     Driving sustainability development through expert solutions
                   </p>
                 </div>
 
                 <Accordion
-                  type="single"
-                  collapsible
-                  defaultValue="item-1"
-                  className="w-full container mx-auto space-y-4 px-4 sm:px-6"
+                    type="single"
+                    collapsible
+                    value={openItem}
+                    onValueChange={handleChange}
+                    className="w-full container mx-auto space-y-4 px-4 sm:px-6"
                 >
 
-                  {/* ITEM 1 */}
-                  <AccordionItem value="item-1" className='border border-[#818C96] rounded-md overflow-hidden'>
-                    <AccordionTrigger
-                      className="
-                        px-6 py-5 text-base font-medium w-full text-left
-                        transition-colors
-                        bg-white
-
-                        data-[state=open]:bg-red-600 data-[state=open]:text-white
-                        data-[state=closed]:hover:bg-red-50
-                      "
-                    >
-                      Impact & Rapid Need Assesment
-                    </AccordionTrigger>
-
-                    <AccordionContent
-                      className="
-                        px-4 pb-5 pt-2 
-                        text-zinc-700 leading-relaxed 
-                        flex flex-col gap-4 text-balance
-                        bg-red-50/60 data-[state=open]:bg-red-600/10
-                        transition-colors rounded-md border-none
-                      "
-                    >
-                      <p>
-                        We Provide comprehensive research, monitoring, and evaluation services to ensure programs are strategically designed, effectively implemented, and impactful. Our exprtise include:
-                        <ul className="list-disc pl-6 space-y-2">
-                          <li>Impact Assessment & Programs Evaluations: Maeasuring, ensuring accountability, and optimizing program strategies.</li>
-                          <li>Theory of Change & Result-Based Management: Designing frameworks that drive sustainable outcomes</li>
-                          <li>Humanitarian Response & Rapid Needs Assessments: Supporting organizations in crisis settings to enhance resillience and emergency response</li>
-                        </ul>
-                      </p>
-                      <p>
-                        Through advanced analytics, participatory, and real-time insights, we empower clients to make informed decisions, optimize resources, and maximize their impact.
-                      </p>
-                    </AccordionContent>
-                  </AccordionItem>
-
-                  {/* ITEM 2 */}
-                  <AccordionItem value="item-2" className='border border-[#818C96] rounded-md overflow-hidden'>
-                    <AccordionTrigger
-                      className="
-                        px-6 py-5 text-base font-medium w-full text-left
-                        transition-colors
-                        bg-white
-
-                        data-[state=open]:bg-red-600 data-[state=open]:text-white
-                        data-[state=closed]:hover:bg-red-50
-                      "
-                    >
-                      Baseline, Midline, and Endline Evaluations
-                    </AccordionTrigger>
-
-                    <AccordionContent
-                      className="
-                        px-4 pb-5 pt-2 
-                        text-zinc-700 leading-relaxed 
-                        flex flex-col gap-4 text-balance
-                        bg-red-50/60 data-[state=open]:bg-red-600/10
-                        transition-colors
-                      "
-                    >
-                      <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae tempore debitis reprehenderit! Quisquam in incidunt quasi atque assumenda deleniti obcaecati nemo, minima est dolore voluptate corporis quos odit commodi! Provident molestias iusto deserunt eaque aperiam tempora amet dolor facere magnam sequi ad, sint praesentium reiciendis delectus blanditiis nam sunt sed.
-                      </p>
-                    </AccordionContent>
-                  </AccordionItem>
-
-                  {/* ITEM 3 */}
-                  <AccordionItem value="item-3" className='border border-[#818C96] rounded-md overflow-hidden'>
-                    <AccordionTrigger
-                      className="
-                        px-6 py-5 text-base font-medium w-full text-left
-                        transition-colors
-                      bg-white
-
-                      data-[state=open]:bg-red-600 data-[state=open]:text-white
-                      data-[state=closed]:hover:bg-red-50
-                      "
-                    >
-                      Third-Party Monitoring
-                    </AccordionTrigger>
-
-                    <AccordionContent
-                      className="
-                        px-4 pb-5 pt-2 
-                        text-zinc-700 leading-relaxed 
-                        flex flex-col gap-4 text-balance
-                        bg-red-50/60 data-[state=open]:bg-red-600/10
-                        transition-colors
-                      "
-                    >
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, eaque? Eligendi, velit. Laborum rerum qui facere corporis deleniti possimus harum facilis adipisci, sint exercitationem iste! Labore modi animi dolorum, corrupti ex neque provident doloribus quibusdam ipsa inventore dolores veniam eos reprehenderit mollitia iusto ut ea corporis nostrum voluptatibus totam! Dolores.
-                      </p>
-                    </AccordionContent>
-                  </AccordionItem>
-
-                  {/* ITEM 4 */}
-                  <AccordionItem value="item-4" className='border border-[#818C96] rounded-md overflow-hidden'>
+                    {/* ITEM 1 */}
+                    <AccordionItem value="item-1" className='border border-[#818C96] rounded-md overflow-hidden'>
                       <AccordionTrigger
-                          className="
-                              px-6 py-5 text-base font-medium w-full text-left
-                        transition-colors
-                      bg-white
-
-                      data-[state=open]:bg-red-600 data-[state=open]:text-white
-                      data-[state=closed]:hover:bg-red-50
-                          "
+                        className="
+                          px-10 py-5 pt-5 text-base font-medium w-full text-left
+                          flex justify-between items-center
+                          bg-white
+                          data-[state=open]:bg-red-600 data-[state=open]:text-white
+                        "
                       >
-                          Media Monitoring
-                      </AccordionTrigger>
+                        <div className="flex items-center gap-3 text-xl">
+                            <span className='text-3xl'>01</span>
+                            <span>Research & Evalution</span>
+                        </div>
 
-                      <AccordionContent
-                          className="
-                              px-4 pb-5 pt-2 
-                              text-zinc-700 leading-relaxed 
-                              flex flex-col gap-4 text-balance
-                              bg-red-50/60 data-[state=open]:bg-red-600/10
-                              transition-colors
-                          "
-                      >
-                          <p>
-                              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, eaque? Eligendi, velit. Laborum rerum qui facere corporis deleniti possimus harum facilis adipisci, sint exercitationem iste! Labore modi animi dolorum, corrupti ex neque provident doloribus quibusdam ipsa inventore dolores veniam eos reprehenderit mollitia iusto ut ea corporis nostrum voluptatibus totam! Dolores.
-                          </p>
-                      </AccordionContent>
-                  </AccordionItem>
+                        <span className={` ml-2 text-3xl font-bold w-10 h-10 flex items-center justify-center rounded-full leading-none border ${openItem !== 'item-1' ? 'bg-[#F3F3F3]' : '' }`}>
+                            {openItem === "item-1" ? "-" : "+"}
+                        </span>
+                        </AccordionTrigger>
 
+                        <AccordionContent
+                        className="
+                          p-10 pt-2 
+                          text-white leading-relaxed 
+                          flex flex-col gap-4 text-balance
+                          bg-red-50/60 data-[state=open]:bg-red-600
+                          transition-colors border-none
+                        "
+                        >
+                        <p>
+                            We Provide comprehensive research, monitoring, and evaluation services to ensure programs are strategically designed, effectively implemented, and impactful. Our exprtise include:
+                            <ul className="list-disc pl-6 space-y-2">
+                            <li>Impact Assessment & Programs Evaluations: Maeasuring, ensuring accountability, and optimizing program strategies.</li>
+                            <li>Theory of Change & Result-Based Management: Designing frameworks that drive sustainable outcomes</li>
+                            <li>Humanitarian Response & Rapid Needs Assessments: Supporting organizations in crisis settings to enhance resillience and emergency response</li>
+                            </ul>
+                        </p>
+                        <p>
+                            Through advanced analytics, participatory, and real-time insights, we empower clients to make informed decisions, optimize resources, and maximize their impact.
+                        </p>
+                        </AccordionContent>
+                    </AccordionItem>
 
-                  {/* ITEM 5 */}
-                  <AccordionItem value="item-5" className='border border-[#818C96] rounded-md overflow-hidden'>
-                      <AccordionTrigger
-                          className="
-                              px-6 py-5 text-base font-medium w-full text-left
-                        transition-colors
-                      bg-white
+                    {/* ITEM 2 */}
+                    <AccordionItem value="item-2" className='border border-[#818C96] rounded-md overflow-hidden'>
+                        <AccordionTrigger
+                        className="
+                            px-10 py-5 pt-5 text-base font-medium w-full text-left
+                            flex justify-between items-center
+                            bg-white
+                            data-[state=open]:bg-red-600 data-[state=open]:text-white
+                        "
+                        >
+                        <div className="flex items-center gap-3 text-xl">
+                            <span className='text-3xl'>02</span>
+                            <span>System Strengthening & Organization Control Development</span>
+                        </div>
+                        <span className={` ml-2 text-3xl font-bold w-10 h-10 flex items-center justify-center rounded-full leading-none border ${openItem !== 'item-2' ? 'bg-[#F3F3F3]' : '' }`}>
+                            {openItem === "item-2" ? "-" : "+"}
+                        </span>
+                        </AccordionTrigger>
 
-                      data-[state=open]:bg-red-600 data-[state=open]:text-white
-                      data-[state=closed]:hover:bg-red-50
-                          "
-                      >
-                          Scoping Study
-                      </AccordionTrigger>
+                        <AccordionContent
+                        className="
+                            p-10 pt-2 
+                            text-white leading-relaxed 
+                            flex flex-col gap-4 text-balance
+                            bg-red-50/60 data-[state=open]:bg-red-600
+                            transition-colors border-none
+                        "
+                        >
+                        <p>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae tempore debitis reprehenderit! Quisquam in incidunt quasi atque assumenda deleniti obcaecati nemo, minima est dolore voluptate corporis quos odit commodi! Provident molestias iusto deserunt eaque aperiam tempora amet dolor facere magnam sequi ad, sint praesentium reiciendis delectus blanditiis nam sunt sed.
+                        </p>
+                        </AccordionContent>
+                    </AccordionItem>
 
-                      <AccordionContent
-                          className="
-                              px-4 pb-5 pt-2 
-                              text-zinc-700 leading-relaxed 
-                              flex flex-col gap-4 text-balance
-                              bg-red-50/60 data-[state=open]:bg-red-600/10
-                              transition-colors
-                          "
-                      >
-                          <p>
-                              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, eaque? Eligendi, velit. Laborum rerum qui facere corporis deleniti possimus harum facilis adipisci, sint exercitationem iste! Labore modi animi dolorum, corrupti ex neque provident doloribus quibusdam ipsa inventore dolores veniam eos reprehenderit mollitia iusto ut ea corporis nostrum voluptatibus totam! Dolores.
-                          </p>
-                      </AccordionContent>
-                  </AccordionItem>
+                    {/* ITEM 3 */}
+                    <AccordionItem value="item-3" className='border border-[#818C96] rounded-md overflow-hidden'>
+                        <AccordionTrigger
+                        className="
+                            px-10 py-5 pt-5 text-base font-medium w-full text-left
+                            flex justify-between items-center
+                            bg-white
+                            data-[state=open]:bg-red-600 data-[state=open]:text-white
+                        "
+                        >
+                        <div className="flex items-center gap-3 text-xl">
+                            <span className='text-3xl'>03</span>
+                            <span>Professional Development & Career Stregnthening </span>
+                        </div>
 
-                  {/* ITEM 6 */}
-                  <AccordionItem value="item-6" className='border border-[#818C96] rounded-md overflow-hidden'>
-                    <AccordionTrigger
-                      className="
-                        px-6 py-5 text-base font-medium w-full text-left
-                        transition-colors
-                      bg-white
+                        <span className={` ml-2 text-3xl font-bold w-10 h-10 flex items-center justify-center rounded-full leading-none border ${openItem !== 'item-3' ? 'bg-[#F3F3F3]' : '' }`}>
+                            {openItem === "item-3" ? "-" : "+"}
+                        </span>
+                        
+                        </AccordionTrigger>
 
-                      data-[state=open]:bg-red-600 data-[state=open]:text-white
-                      data-[state=closed]:hover:bg-red-50
-                      "
-                    >
-                      Target Audience Analysis
-                    </AccordionTrigger>
-
-                      <AccordionContent
-                          className="
-                              px-4 pb-5 pt-2 
-                              text-zinc-700 leading-relaxed 
-                              flex flex-col gap-4 text-balance
-                              bg-red-50/60 data-[state=open]:bg-red-600/10
-                              transition-colors
-                          "
-                      >
-                          <p>
-                              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, eaque? Eligendi, velit. Laborum rerum qui facere corporis deleniti possimus harum facilis adipisci, sint exercitationem iste! Labore modi animi dolorum, corrupti ex neque provident doloribus quibusdam ipsa inventore dolores veniam eos reprehenderit mollitia iusto ut ea corporis nostrum voluptatibus totam! Dolores.
-                          </p>
-                      </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
+                        <AccordionContent
+                        className="
+                            p-10 pt-2 
+                            text-white leading-relaxed 
+                            flex flex-col gap-4 text-balance
+                            bg-red-50/60 data-[state=open]:bg-red-600
+                            transition-colors border-none
+                        "
+                        >
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, eaque? Eligendi, velit. Laborum rerum qui facere corporis deleniti possimus harum facilis adipisci, sint exercitationem iste! Labore modi animi dolorum, corrupti ex neque provident doloribus quibusdam ipsa inventore dolores veniam eos reprehenderit mollitia iusto ut ea corporis nostrum voluptatibus totam! Dolores.
+                        </p>
+                        </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
               </div>
             </div>
           </section>
@@ -406,11 +337,11 @@ const AboutPage = () => {
 
                 {/* Heading + Subtitle */}
                 <div className="flex flex-col gap-1 justify-start items-center px-3">
-                  <h2 className="text-[22px] sm:text-[26px] lg:text-[28px] font-medium text-[#282829] font-['Space_Grotesk'] leading-[28px] sm:leading-[32px] lg:leading-[36px] text-center">
+                  <h2 className="text-[22px] sm:text-[26px] lg:text-[28px] font-medium text-[#282829] font-['Space_Grotesk'] leading-[28px] sm:leading-[32px] lg:leading-[36px] text-center mb-2">
                     Meet Our Incredible Team
                   </h2>
 
-                  <p className="text-[13px] sm:text-[14px] lg:text-[16px] font-normal text-[#4e5664] font-['Inter'] leading-[18px] sm:leading-[19px] lg:leading-[20px] text-center">
+                  <p className="text-[13px] sm:text-[14px] lg:text-[16px] font-normal text-[#4e5664] font-[inter] leading-[18px] sm:leading-[19px] lg:leading-[20px] text-center">
                     Driving sustainability development through expert solutions
                   </p>
                 </div>
