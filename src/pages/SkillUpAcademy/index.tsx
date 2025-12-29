@@ -7,6 +7,7 @@ import courseImg2 from '../../assets/images/CourseImg2.webp'
 import sectionImage from '../../assets/images/sectionImage.webp'
 import { Link } from 'react-router-dom';
 import CheckProjects from '@/components/common/CheckProjects';
+import { ArrowRight } from 'lucide-react';
 
 const SkillUpAcademyPage = () => {
     return (
@@ -19,22 +20,25 @@ const SkillUpAcademyPage = () => {
                         <div className="container mx-auto flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12 items-center">
                             {/* LEFT */}
                             <div className="w-full lg:w-[60%] h-full pt-4 sm:pt-6 lg:pt-4 pb-6 lg:pb-0 flex flex-col gap-3 sm:gap-4 lg:gap-2 justify-center">
-                            <div className="inline-block w-max text-[#E4010C] text-xs sm:text-sm lg:text-md px-2.5 sm:px-3 py-1 rounded-md bg-red-50 border border-red-100">
+                            <div className="inline-block w-max text-[#E4010C] text-xs sm:text-sm lg:text-md px-2.5 font-medium sm:px-3 py-1 rounded-md bg-red-50 border border-red-100">
                                 WELCOME TO SKILL-UP ACADEMY
                             </div>
                             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#E4010C] leading-tight">
                                 Achieving Your Dreams Through Education
                             </h1>
-                            <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                                Empowering the next generation through quality education and comprehensive support programs.
+                            <p className="text-sm sm:text-base text-[#263238] leading-relaxed">
+                                We are experienced in educationl platform and skilled strategies for the success of our online learning.
                             </p>
                             <div className="flex flex-row gap-3 sm:gap-4 mt-2">
-                                <button className="bg-[#E4010C] text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded hover:bg-red-700 transition text-sm sm:text-base">
-                                Get Started
-                                </button>
-                                <button className="border border-gray-300 text-gray-700 px-5 sm:px-6 py-2.5 sm:py-3 rounded hover:border-gray-400 transition text-sm sm:text-base">
-                                Learn More
-                                </button>
+                                <Link to={'/resources'}>
+                                    <button className="bg-[#E4010C] text-white px-4 py-2 sm:py-1.5 rounded-full hover:bg-red-700 transition-all duration-200 text-sm sm:text-base flex items-center gap-3 group">
+                                        <span>Find Course</span>
+
+                                        <span className="h-10 w-10 flex items-center justify-center bg-[#F53838] rounded-full transition-transform duration-200 group-hover:translate-x-1">
+                                            <ArrowRight />
+                                        </span>
+                                    </button>
+                                </Link>
                             </div>
                             </div>
 
