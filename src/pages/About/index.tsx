@@ -45,7 +45,7 @@ const AboutPage = () => {
         <Container>
 
           {/* Hero Section */}
-          <section className="w-full p-6 sm:p-10">
+          <section className="w-full p-1 sm:p-10">
             <div className="container mx-auto">
 
               {/* Stack on mobile, row on desktop */}
@@ -98,7 +98,7 @@ const AboutPage = () => {
 
 
           {/* Mission and Vision Section */}
-          <section className="w-full p-6 sm:p-10 font-[Sora]">
+          <section className="w-full p-1 sm:p-10 font-[Sora]">
             <div className="w-full max-w-[1440px] mx-auto">
               <div className="flex flex-col gap-10 sm:gap-10 lg:gap-[90px] items-center">
 
@@ -172,7 +172,7 @@ const AboutPage = () => {
           </section>
 
           {/* Commitment Section */}
-          <section className="w-full py-10">
+          <section className="w-full py-10 px-1 sm:py-10">
             <div className="w-full mx-auto">
               <div className="flex flex-col gap-10">
 
@@ -190,37 +190,54 @@ const AboutPage = () => {
                     collapsible
                     value={openItem}
                     onValueChange={handleChange}
-                    className="w-full container mx-auto space-y-4 px-4 sm:px-6"
+                    className="w-full max-w-6xl mx-auto space-y-3 px-2 sm:px-6"
                 >
 
                     {/* ITEM 1 */}
                     <AccordionItem value="item-1" className='border border-[#818C96] rounded-md overflow-hidden'>
                       <AccordionTrigger
                         className="
-                          px-10 py-5 pt-5 text-base font-medium w-full text-left
-                          flex justify-between items-center
+                          px-4 py-4
+                          sm:px-6 sm:py-5
+                          lg:px-10
+                          w-full text-left
+                          flex items-start sm:items-center justify-between gap-4
                           bg-white
                           data-[state=open]:bg-red-600 data-[state=open]:text-white
                         "
                       >
-                        <div className="flex items-center gap-3 text-xl">
-                            <span className='text-3xl'>01</span>
-                            <span>Research & Evalution</span>
+                        <div className="flex items-center gap-3 justify-center">
+                          <span className="text-xl sm:text-2xl lg:text-3xl font-semibold">
+                            01
+                          </span>
+                          <span className="text-xl sm:text-xl leading-snug">
+                            Research & Evaluation
+                          </span>
                         </div>
 
-                        <span className={` ml-2 text-3xl font-bold w-10 h-10 flex items-center justify-center rounded-full leading-none border ${openItem !== 'item-1' ? 'bg-[#F3F3F3]' : '' }`}>
-                            {openItem === "item-1" ? "-" : "+"}
+                        {/* Plus / Minus */}
+                        <span
+                          className={`
+                            flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 text-xl sm:text-2xl font-bold rounded-full border leading-none shrink-0
+                            ${openItem !== "item-1" ? "bg-[#F3F3F3]" : ""}
+                          `}
+                        >
+                          {openItem === "item-1" ? "−" : "+"}
                         </span>
                         </AccordionTrigger>
 
                         <AccordionContent
-                        className="
-                          p-10 pt-2 
-                          text-white leading-relaxed 
-                          flex flex-col gap-4 text-balance
-                          bg-red-50/60 data-[state=open]:bg-red-600
-                          transition-colors border-none
-                        "
+                          className="
+                            px-4 pb-5 pt-2
+                            sm:px-6
+                            lg:px-10
+                            text-base sm:text-md
+                            leading-relaxed
+                            flex flex-col gap-4
+                            bg-red-50/60 data-[state=open]:bg-red-600
+                            text-white
+                            transition-colors
+                          "
                         >
                         <p>
                             We Provide comprehensive research, monitoring, and evaluation services to ensure programs are strategically designed, effectively implemented, and impactful. Our exprtise include:
@@ -240,28 +257,40 @@ const AboutPage = () => {
                     <AccordionItem value="item-2" className='border border-[#818C96] rounded-md overflow-hidden'>
                         <AccordionTrigger
                         className="
-                            px-10 py-5 pt-5 text-base font-medium w-full text-left
-                            flex justify-between items-center
-                            bg-white
-                            data-[state=open]:bg-red-600 data-[state=open]:text-white
+                            px-4 py-4
+                          sm:px-6 sm:py-5
+                          lg:px-10
+                          w-full text-left
+                          flex items-start sm:items-center justify-between gap-4
+                          bg-white
+                          data-[state=open]:bg-red-600 data-[state=open]:text-white
                         "
                         >
-                        <div className="flex items-center gap-3 text-xl">
-                            <span className='text-3xl'>02</span>
-                            <span>System Strengthening & Organization Control Development</span>
-                        </div>
-                        <span className={` ml-2 text-3xl font-bold w-10 h-10 flex items-center justify-center rounded-full leading-none border ${openItem !== 'item-2' ? 'bg-[#F3F3F3]' : '' }`}>
+
+                          <div className="flex items-center gap-3 justify-center">
+                            <span className="text-xl sm:text-2xl lg:text-3xl font-semibold">
+                              02
+                            </span>
+                            <span className="text-xl sm:text-xl leading-snug">
+                              System Strengthening & Organization Control Development
+                            </span>
+                          </div>
+                          <span className={`flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 text-xl sm:text-2xl font-bold rounded-full border leading-none shrink-0 ${openItem !== 'item-2' ? 'bg-[#F3F3F3]' : '' }`}>
                             {openItem === "item-2" ? "-" : "+"}
-                        </span>
+                          </span>
                         </AccordionTrigger>
 
                         <AccordionContent
                         className="
-                            p-10 pt-2 
-                            text-white leading-relaxed 
-                            flex flex-col gap-4 text-balance
+                            px-4 pb-5 pt-2
+                            sm:px-6
+                            lg:px-10
+                            text-base sm:text-md
+                            leading-relaxed
+                            flex flex-col gap-4
                             bg-red-50/60 data-[state=open]:bg-red-600
-                            transition-colors border-none
+                            text-white
+                            transition-colors
                         "
                         >
                         <p>
@@ -274,18 +303,25 @@ const AboutPage = () => {
                     <AccordionItem value="item-3" className='border border-[#818C96] rounded-md overflow-hidden'>
                         <AccordionTrigger
                         className="
-                            px-10 py-5 pt-5 text-base font-medium w-full text-left
-                            flex justify-between items-center
-                            bg-white
-                            data-[state=open]:bg-red-600 data-[state=open]:text-white
+                            px-4 py-4
+                          sm:px-6 sm:py-5
+                          lg:px-10
+                          w-full text-left
+                          flex items-start sm:items-center justify-between gap-4
+                          bg-white
+                          data-[state=open]:bg-red-600 data-[state=open]:text-white
                         "
                         >
-                        <div className="flex items-center gap-3 text-xl">
-                            <span className='text-3xl'>03</span>
-                            <span>Professional Development & Career Stregnthening </span>
-                        </div>
+                          <div className="flex items-center gap-3 justify-center">
+                            <span className="text-xl sm:text-2xl lg:text-3xl font-semibold">
+                              03
+                            </span>
+                            <span className="text-xl sm:text-xl leading-snug">
+                              Professional Development & Career Stregnthening 
+                            </span>
+                          </div>
 
-                        <span className={` ml-2 text-3xl font-bold w-10 h-10 flex items-center justify-center rounded-full leading-none border ${openItem !== 'item-3' ? 'bg-[#F3F3F3]' : '' }`}>
+                        <span className={`flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 text-xl sm:text-2xl font-bold rounded-full border leading-none shrink-0 ${openItem !== 'item-3' ? 'bg-[#F3F3F3]' : '' }`}>
                             {openItem === "item-3" ? "-" : "+"}
                         </span>
                         
@@ -293,11 +329,15 @@ const AboutPage = () => {
 
                         <AccordionContent
                         className="
-                            p-10 pt-2 
-                            text-white leading-relaxed 
-                            flex flex-col gap-4 text-balance
+                            px-4 pb-5 pt-2
+                            sm:px-6
+                            lg:px-10
+                            text-base sm:text-md
+                            leading-relaxed
+                            flex flex-col gap-4
                             bg-red-50/60 data-[state=open]:bg-red-600
-                            transition-colors border-none
+                            text-white
+                            transition-colors
                         "
                         >
                         <p>
