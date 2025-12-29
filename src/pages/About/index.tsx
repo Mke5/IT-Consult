@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react'
 import Header from '../../components/common/Header'
 import Footer from '../../components/common/Footer';
-import { FaDumbbell, FaUsers } from 'react-icons/fa';
 import { PiHandshakeFill } from 'react-icons/pi';
-import { SiLibreofficewriter } from 'react-icons/si';
 import Container from '../../components/common/Container';
 import Hero1 from '../../assets/images/image20.webp'
-import image1 from '../../assets/images/image14.svg'
 import image2 from '../../assets/images/AboutUs.png'
 import userImage1 from '../../assets/images/userImage.png'
 import CheckProjects from '@/components/common/CheckProjects';
 import { api, type TeamMember } from '../../lib/api';
+import usersIcon from '../../assets/images/UsersFour.svg'
+import dumbelIcon from '../../assets/images/Barbell.svg'
+import wordTextIcon from '../../assets/images/ArticleNyTimes.svg'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
 
 const AboutPage = () => {
@@ -60,24 +60,24 @@ const AboutPage = () => {
                 <div className="w-full lg:w-[60%]">
 
                   {/* ABOUT US label */}
-                  <p className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal text-[#e4010c] font-['Sora'] leading-3 sm:leading-4 lg:leading-[18px] uppercase mb-3">
+                  {/* <p className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal text-[#e4010c] font-['Sora'] leading-3 sm:leading-4 lg:leading-[18px] uppercase mb-3">
                     ABOUT US
-                  </p>
+                  </p> */}
 
                   {/* Small icon image */}
-                  <img 
+                  {/* <img 
                     src={image1}
                     className="w-14 sm:w-16 lg:w-20 object-contain mb-3"
-                  />
+                  /> */}
 
                   {/* Heading */}
-                  <h1 className="text-[26px] sm:text-[32px] lg:text-[40px] font-bold text-[#0e2a46] font-['Poppins'] leading-[30px] sm:leading-[38px] lg:leading-[49px] capitalize w-full mb-3">
+                  <h1 className="mt-3 text-[26px] sm:text-[32px] lg:text-[40px] font-bold text-[#0e2a46] font-['Poppins'] leading-[30px] sm:leading-[38px] lg:leading-[49px] capitalize w-full mb-3">
                     <span>Empowering Organisations. Driving </span>
                     <span className="text-[#e4010c]">Impact</span>
                   </h1>
 
                   {/* Paragraph */}
-                  <p className="text-[14px] sm:text-[15px] lg:text-md font-normal text-black font-[inter] leading-6 tracking-[0.5px] text-justify w-full mb-6">
+                  <p className="text-[17px] sm:text-[20px] lg:text-md font-normal text-black font-[inter] leading-6 tracking-[0.5px] text-justify w-full mb-6">
                     MyIT Consult Ltd is a Nigerian-rooted consulting firm with an expanding African footprint. 
                     We co-design evidence-based strategies, capacity-building programmes and digital solutions 
                     to strengthen institutions and empower people. Our multi-disciplinary team of strategists, 
@@ -110,7 +110,7 @@ const AboutPage = () => {
                     <h2 className="text-[22px] sm:text-[26px] lg:text-[28px] font-medium text-[#282829] font-['Space_Grotesk'] leading-[28px] sm:leading-[32px] lg:leading-[36px]">
                       Our Mission
                     </h2>
-                    <p className="text-[14px] sm:text-[15px] lg:text-[16px] font-normal text-black font-[inter] leading-6 tracking-[0.5px] text-justify mb-6">
+                    <p className="text-[17px] sm:text-[20px] lg:text-md font-normal text-black font-[inter] leading-6 tracking-[0.5px] text-justify mb-6">
                       To partner with public, private and social sector leaders to generate and apply data-driven evidence,
                       strengthen people and institutions, and deploy technology solutions that improve decision-making and
                       advance sustainable development.
@@ -119,10 +119,10 @@ const AboutPage = () => {
 
                   {/* Vision */}
                   <div className="w-full lg:w-[48%] flex flex-col gap-2">
-                    <h2 className="text-[22px] sm:text-[26px] lg:text-[28px] font-medium text-[#282829] font-['Space_Grotesk'] leading-[28px] sm:leading-[32px] lg:leading-[36px]">
+                    <h2 className="text-[22px] sm:text-[30px] font-medium text-[#282829] font-['Space_Grotesk'] leading-[28px] sm:leading-[32px] lg:leading-[36px]">
                       Our Vision
                     </h2>
-                    <p className="text-[14px] sm:text-[15px] lg:text-[16px] font-normal text-black font-[inter] leading-6 tracking-[0.5px] text-justify mb-6">
+                    <p className="text-[17px] sm:text-[20px] lg:text-md font-normal text-black font-[inter] leading-6 tracking-[0.5px] text-justify mb-6">
                       "A world where decisions are powered by evidence, institutions are resilient, and development is
                       sustainable for all."
                     </p>
@@ -130,43 +130,43 @@ const AboutPage = () => {
                 </div>
 
                 {/* Statistics Section */}
-                <div className="grid grid-cols-2 lg:flex lg:flex-row gap-4 lg:gap-0">
-                  {/* Stat 1 */}
-                  <div className="flex items-center gap-3 lg:flex-1 lg:gap-5 lg:border-r border-[#EEEFF2] lg:px-4 py-4">
-                    <FaDumbbell className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] lg:h-[55px] lg:w-[55px] rounded-full"/>
-                    <div>
-                      <div className="text-xl lg:text-[25px] font-[Rubik] font-bold text-red-600">90+</div>
-                      <div className="text-gray-600 font-[Rubik] font-normal text-base lg:text-[20px]">Workforce</div>
+                <div className="grid grid-cols-2 lg:flex lg:flex-row gap-4 sm:gap-6 lg:gap-0 mt-6 sm:mt-0">
+                    {/* Stat 1 */}
+                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:border-r border-[#EEEFF2] lg:px-4 xl:px-6 py-4 hover:bg-gray-50 rounded-lg lg:rounded-none transition-colors duration-200">
+                      <img src={dumbelIcon} className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] lg:h-[55px] lg:w-[55px] rounded-full"/>
+                      <div>
+                        <div className="text-xl sm:text-2xl lg:text-[25px] xl:text-3xl font-[Rubik] font-bold text-[#e4010c]">90+</div>
+                        <div className="text-gray-600 font-[Rubik] font-normal text-sm sm:text-base lg:text-lg xl:text-[20px]">Workforce</div>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Stat 2 */}
-                  <div className="flex items-center gap-3 lg:flex-1 lg:gap-5 lg:border-r border-[#EEEFF2] lg:px-4 py-4">
-                    <PiHandshakeFill className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] lg:h-[55px] lg:w-[55px] rounded-full"/>
-                    <div>
-                      <div className="text-xl lg:text-[25px] font-[Rubik] font-bold text-red-600">40+</div>
-                      <div className="text-gray-600 font-[Rubik] font-normal text-base lg:text-[20px]">Partnership</div>
+                    {/* Stat 2 */}
+                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:border-r border-[#EEEFF2] lg:px-4 xl:px-6 py-4 hover:bg-gray-50 rounded-lg lg:rounded-none transition-colors duration-200">
+                      <PiHandshakeFill className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] sm:h-[50px] sm:w-[50px] lg:h-[55px] lg:w-[55px] rounded-full transition-transform hover:scale-110"/>
+                      <div>
+                        <div className="text-xl sm:text-2xl lg:text-[25px] xl:text-3xl font-[Rubik] font-bold text-[#e4010c]">40+</div>
+                        <div className="text-gray-600 font-[Rubik] font-normal text-sm sm:text-base lg:text-lg xl:text-[20px]">Partnership</div>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Stat 3 */}
-                  <div className="flex items-center gap-3 lg:flex-1 lg:gap-5 lg:border-r border-[#EEEFF2] lg:px-4 py-4">
-                    <FaUsers className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] lg:h-[55px] lg:w-[55px] rounded-full"/>
-                    <div>
-                      <div className="text-xl lg:text-[25px] font-[Rubik] font-bold text-red-600">1000+</div>
-                      <div className="text-gray-600 font-[Rubik] font-normal text-base lg:text-[20px]">Trainings</div>
+                    {/* Stat 3 */}
+                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:border-r border-[#EEEFF2] lg:px-4 xl:px-6 py-4 hover:bg-gray-50 rounded-lg lg:rounded-none transition-colors duration-200">
+                      <img src={usersIcon} className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] lg:h-[55px] lg:w-[55px] rounded-full"/>
+                      <div>
+                        <div className="text-xl sm:text-2xl lg:text-[25px] xl:text-3xl font-[Rubik] font-bold text-[#e4010c]">1000+</div>
+                        <div className="text-gray-600 font-[Rubik] font-normal text-sm sm:text-base lg:text-lg xl:text-[20px]">Trainings</div>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Stat 4 */}
-                  <div className="flex items-center gap-3 lg:flex-1 lg:gap-5 lg:px-4 py-4">
-                    <SiLibreofficewriter className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] lg:h-[55px] lg:w-[55px] rounded-full"/>
-                    <div>
-                      <div className="text-xl lg:text-[25px] font-[Rubik] font-bold text-red-600">60+</div>
-                      <div className="text-gray-600 font-[Rubik] font-normal text-base lg:text-[20px]">Writeups</div>
+                    {/* Stat 4 */}
+                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:px-4 xl:px-6 py-4 hover:bg-gray-50 rounded-lg lg:rounded-none transition-colors duration-200">
+                      <img src={wordTextIcon} className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] lg:h-[55px] lg:w-[55px] rounded-full"/>
+                      <div>
+                        <div className="text-xl sm:text-2xl lg:text-[25px] xl:text-3xl font-[Rubik] font-bold text-[#e4010c]">60+</div>
+                        <div className="text-gray-600 font-[Rubik] font-normal text-sm sm:text-base lg:text-lg xl:text-[20px]">Writeups</div>
+                      </div>
                     </div>
                   </div>
-                </div>
               </div>
             </div>
           </section>
@@ -177,10 +177,10 @@ const AboutPage = () => {
               <div className="flex flex-col gap-10">
 
                 <div className="flex flex-col gap-1 justify-start items-center px-1">
-                  <h2 className="text-[28px] font-medium text-[#282829] font-['Space_Grotesk'] leading-[36px] text-center mb-2">
+                  <h2 className="text-[28px] sm:text-[36px] font-medium text-[#282829] font-['Space Grotesk'] leading-[36px] text-center mb-2">
                     Our Commitment
                   </h2>
-                  <p className="text-[14px] sm:text-[15px] lg:text-[16px] font-normal text-[#4e5664] font-[inter] leading-[18px] sm:leading-[19px] lg:leading-[20px] text-center">
+                  <p className="text-[14px] sm:text-[16px] font-normal text-[#4e5664] font-[inter] leading-[18px] sm:leading-[19px] lg:leading-[20px] text-center">
                     Driving sustainability development through expert solutions
                   </p>
                 </div>
@@ -194,7 +194,7 @@ const AboutPage = () => {
                 >
 
                     {/* ITEM 1 */}
-                    <AccordionItem value="item-1" className='border border-[#818C96] rounded-md overflow-hidden'>
+                    <AccordionItem value="item-1" className='border border-[#818C96] rounded-3xl overflow-hidden'>
                       <AccordionTrigger
                         className="
                           px-4 py-4
@@ -254,7 +254,7 @@ const AboutPage = () => {
                     </AccordionItem>
 
                     {/* ITEM 2 */}
-                    <AccordionItem value="item-2" className='border border-[#818C96] rounded-md overflow-hidden'>
+                    <AccordionItem value="item-2" className='border border-[#818C96] rounded-3xl overflow-hidden'>
                         <AccordionTrigger
                         className="
                             px-4 py-4
@@ -300,7 +300,7 @@ const AboutPage = () => {
                     </AccordionItem>
 
                     {/* ITEM 3 */}
-                    <AccordionItem value="item-3" className='border border-[#818C96] rounded-md overflow-hidden'>
+                    <AccordionItem value="item-3" className='border border-[#818C96] rounded-3xl overflow-hidden'>
                         <AccordionTrigger
                         className="
                             px-4 py-4
@@ -377,11 +377,11 @@ const AboutPage = () => {
 
                 {/* Heading + Subtitle */}
                 <div className="flex flex-col gap-1 justify-start items-center px-3">
-                  <h2 className="text-[22px] sm:text-[26px] lg:text-[28px] font-medium text-[#282829] font-['Space_Grotesk'] leading-[28px] sm:leading-[32px] lg:leading-[36px] text-center mb-2">
+                  <h2 className="text-[28px] sm:text-[36px] font-medium text-[#282829] font-['Space_Grotesk'] leading-[28px] sm:leading-[32px] lg:leading-[36px] text-center mb-2">
                     Meet Our Incredible Team
                   </h2>
 
-                  <p className="text-[13px] sm:text-[14px] lg:text-[16px] font-normal text-[#4e5664] font-[inter] leading-[18px] sm:leading-[19px] lg:leading-[20px] text-center">
+                  <p className="text-[14px] sm:text-[16px] font-normal text-[#4e5664] font-[inter] leading-[18px] sm:leading-[19px] lg:leading-[20px] text-center">
                     Driving sustainability development through expert solutions
                   </p>
                 </div>

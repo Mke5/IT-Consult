@@ -2,11 +2,12 @@ import Footer from '../../components/common/Footer';
 import Header from '../../components/common/Header';
 import Container from '../../components/common/Container';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
-import { FaDumbbell, FaUsers } from 'react-icons/fa';
+import { FaDumbbell } from 'react-icons/fa';
 import { PiHandshakeFill } from 'react-icons/pi';
 import Image1 from '../../assets/images/heroImage3.svg'
 import CheckProjects from '@/components/common/CheckProjects';
 import { useState } from 'react';
+import usersIcon from '../../assets/images/UsersFour.svg'
 
 const WhatWeDo = () => {
     const [openItem, setOpenItem] = useState<string>("item-1");
@@ -63,7 +64,7 @@ const WhatWeDo = () => {
 
                                         {/* Stat 3 */}
                                         <div className="flex items-center gap-3 lg:flex-1 lg:gap-5 lg:border-r border-[#EEEFF2] lg:px-4 py-4 col-span-2 lg:col-span-1">
-                                        <FaUsers className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] lg:h-[55px] lg:w-[55px] rounded-full"/>
+                                            <img src={usersIcon} className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] lg:h-[55px] lg:w-[55px] rounded-full"/>
                                         <div>
                                             <div className="text-xl lg:text-[25px] font-[Rubik] font-bold text-red-600">1000+</div>
                                             <div className="text-gray-600 font-[Rubik] font-normal text-base lg:text-[20px]">Trainings</div>
@@ -77,7 +78,7 @@ const WhatWeDo = () => {
                                         <img
                                             src={Image1}
                                             alt="What We Do"
-                                            className="w-full h-auto lg:h-[500px] object-contain"
+                                            className="w-[350px] h-auto lg:h-[400px] object-contain"
                                         />
                                     </div>
 
@@ -133,7 +134,7 @@ const WhatWeDo = () => {
                         >
 
                             {/* ITEM 1 */}
-                            <AccordionItem value="item-1" className='border border-[#818C96] rounded-md overflow-hidden'>
+                            <AccordionItem value="item-1" className='border border-[#818C96] rounded-3xl overflow-hidden'>
                                 <AccordionTrigger
                                 className="
                                     px-4 py-4 sm:px-6 sm:py-5 lg:px-10 w-full text-left flex items-start sm:items-center justify-between gap-4 bg-white data-[state=open]:bg-red-600 data-[state=open]:text-white
@@ -181,7 +182,7 @@ const WhatWeDo = () => {
                             </AccordionItem>
 
                             {/* ITEM 2 */}
-                            <AccordionItem value="item-2" className='border border-[#818C96] rounded-md overflow-hidden'>
+                            <AccordionItem value="item-2" className='border border-[#818C96] rounded-3xl overflow-hidden'>
                                 <AccordionTrigger
                                 className="
                                     px-4 py-4 sm:px-6 sm:py-5 lg:px-10 w-full text-left flex items-start sm:items-center justify-between gap-4 bg-white data-[state=open]:bg-red-600 data-[state=open]:text-white
@@ -220,7 +221,7 @@ const WhatWeDo = () => {
                             </AccordionItem>
 
                             {/* ITEM 3 */}
-                            <AccordionItem value="item-3" className='border border-[#818C96] rounded-md overflow-hidden'>
+                            <AccordionItem value="item-3" className='border border-[#818C96] rounded-3xl overflow-hidden'>
                                 <AccordionTrigger
                                 className="
                                     px-4 py-4 sm:px-6 sm:py-5 lg:px-10 w-full text-left flex items-start sm:items-center justify-between gap-4 bg-white data-[state=open]:bg-red-600 data-[state=open]:text-white
@@ -262,7 +263,7 @@ const WhatWeDo = () => {
                             </AccordionItem>
 
                             {/* ITEM 4 */}
-                            <AccordionItem value="item-4" className='border border-[#818C96] rounded-md overflow-hidden'>
+                            <AccordionItem value="item-4" className='border border-[#818C96] rounded-3xl overflow-hidden'>
                                 <AccordionTrigger
                                     className="
                                         px-4 py-4 sm:px-6 sm:py-5 lg:px-10 w-full text-left flex items-start sm:items-center justify-between gap-4 bg-white data-[state=open]:bg-red-600 data-[state=open]:text-white
@@ -304,7 +305,7 @@ const WhatWeDo = () => {
 
 
                             {/* ITEM 5 */}
-                            <AccordionItem value="item-5" className='border border-[#818C96] rounded-md overflow-hidden'>
+                            <AccordionItem value="item-5" className='border border-[#818C96] rounded-3xl overflow-hidden'>
                                 <AccordionTrigger
                                     className="
                                         px-4 py-4 sm:px-6 sm:py-5 lg:px-10 w-full text-left flex items-start sm:items-center justify-between gap-4 bg-white data-[state=open]:bg-red-600 data-[state=open]:text-white
@@ -345,7 +346,7 @@ const WhatWeDo = () => {
                             </AccordionItem>
 
                             {/* ITEM 6 */}
-                            <AccordionItem value="item-6" className='border border-[#818C96] rounded-md overflow-hidden'>
+                            <AccordionItem value="item-6" className='border border-[#818C96] rounded-3xl overflow-hidden'>
                                 <AccordionTrigger
                                     className="
                                         px-4 py-4 sm:px-6 sm:py-5 lg:px-10 w-full text-left flex items-start sm:items-center justify-between gap-4 bg-white data-[state=open]:bg-red-600 data-[state=open]:text-white

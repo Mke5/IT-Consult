@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer className="w-full bg-white">
             {/* Newsletter & Contact Section */}
-            <section className="w-full bg-[#2c2b2a] py-8 sm:py-12 lg:py-16">
+            <section className="w-full bg-[#2c2b2a] py-8 0">
                 <Container>
                     <div className="flex flex-col gap-8 sm:gap-10 lg:gap-[42px] justify-center items-center">
                         {/* Newsletter and Office Address */}
@@ -14,19 +14,19 @@ const Footer = () => {
                             {/* Office Address */}
                             <div className="w-full lg:w-[60%] flex flex-col gap-5 sm:gap-[26px]">
                                 <div>
-                                    <span className="bg-[#e4010c] rounded-sm px-3 py-2 text-base sm:text-lg lg:text-xl font-medium text-[#ffffffe5] font-space_grotesk leading-tight sm:leading-[26px] cursor-default">
+                                    <span className="bg-[#e4010c] rounded-lg px-3 py-2 text-base sm:text-lg lg:text-xl font-medium text-[#ffffffe5] font-space_grotesk leading-tight sm:leading-[26px] cursor-default">
                                         Office Address
                                     </span>
                                 </div>
-                                <div className="flex flex-col gap-3 sm:gap-5">
+                                <div className="flex flex-col gap-3 sm:gap-5 justify-center">
                                     {[
                                         "F4- Pathfield Mall, Plot B4, 4th Avenue, Gwarinpa, Abuja, Nigeria",
                                         "No 2B Hauwa'u Estate, Opp. Unity Avenue, Tinshama, Hotoro, Nassarawa.",
                                         "No 7, Muhammad Chellube Street off Damboa Road, Maiduguri, Borno State.",
                                         "9 Tijjani Kwaji Street, off Boss Mustapha Road, Dougirei, Jimeta-Yola, Adamawa State"
                                     ].map((address, index) => (
-                                        <div key={index} className="flex items-start gap-2">
-                                            <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-white flex-shrink-0 mt-1" />
+                                        <div key={index} className="flex gap-2 items-center">
+                                            <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-white shrink-0 mt-1" />
                                             <span className="text-sm sm:text-base lg:text-md font-normal text-white font-space leading-relaxed sm:leading-[23px]">
                                                 {address}
                                             </span>
@@ -43,15 +43,15 @@ const Footer = () => {
                                     <input
                                         type="email"
                                         placeholder="Email"
-                                        className="flex-1 px-4 py-2.5 sm:py-3 lg:py-4 rounded-md text-sm sm:text-base text-white bg-transparent border border-white/50 placeholder:text-white/70 focus:outline-none focus:border-white focus:ring-2 focus:ring-white/20 transition-all"
+                                        className="flex-1 px-4 py-2.5 sm:py-3 lg:py-4 rounded-lg text-sm sm:text-base text-white bg-transparent border border-white/50 placeholder:text-white/70 focus:outline-none focus:border-white focus:ring-2 focus:ring-white/20 transition-all"
                                         required
                                     />
                                     {/* Subscribe Button */}
                                     <button
                                         type="submit"
-                                        className="px-6 sm:px-8 py-2.5 sm:py-3 lg:py-4 rounded-md bg-[#e4010c] hover:bg-red-700 active:scale-95 transition-all duration-200 text-white font-medium text-sm sm:text-base lg:text-lg cursor-pointer whitespace-nowrap shadow-md hover:shadow-lg"
+                                        className="px-6 sm:px-8 py-2.5 sm:py-3 lg:py-4 rounded-lg bg-[#e4010c] hover:bg-red-700 active:scale-95 transition-all duration-200 text-white font-medium text-sm sm:text-base lg:text-lg cursor-pointer whitespace-nowrap shadow-md hover:shadow-lg"
                                     >
-                                        Subscribe
+                                        Subscribe to news
                                     </button>
                                 </form>
                             </div>

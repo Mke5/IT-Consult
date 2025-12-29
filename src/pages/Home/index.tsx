@@ -9,9 +9,10 @@ import Her0Inage2 from '../../assets/images/HeroImage2.svg'
 import oval from '../../assets/images/Oval.svg'
 import Map from '../../assets/images/HugeGlobal.svg'
 import { PiHandshakeFill } from 'react-icons/pi'
-import { FaDumbbell, FaUsers } from 'react-icons/fa'
 import { HiOutlineStar } from 'react-icons/hi2'
-import { SiLibreofficewriter } from 'react-icons/si'
+import usersIcon from '../../assets/images/UsersFour.svg'
+import dumbelIcon from '../../assets/images/Barbell.svg'
+import wordTextIcon from '../../assets/images/ArticleNyTimes.svg'
 import { api, type Service, type Testimonial, type Partner } from '../../lib/api'
 
 const HomePage = () => {
@@ -27,9 +28,9 @@ const HomePage = () => {
     setCurrent((current + 1) % images.length);
   };
 
-  const prevSlide = () => {
-    setCurrent((current - 1 + images.length) % images.length);
-  };
+  // const prevSlide = () => {
+  //   setCurrent((current - 1 + images.length) % images.length);
+  // };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -84,14 +85,14 @@ const HomePage = () => {
                     We bridge data, strategy and technology to help institutions and innovators deliver measureable, sustainable impact.
                   </p>
 
-                  <button className="bg-[#e4010c] text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-3.5 lg:py-4 rounded-md hover:bg-red-700 active:scale-95 transition-all duration-200 cursor-pointer text-sm sm:text-base lg:text-lg font-[inter] font-medium shadow-md hover:shadow-lg w-fit">
+                  <button className="bg-[#e4010c] text-white px-12  py-2 rounded-2xl hover:bg-red-700 active:scale-95 transition-all duration-200 cursor-pointer text-sm sm:text-sm font-[inter] font-medium shadow-md hover:shadow-lg w-fit">
                     Learn More
                   </button>
 
-                  <div className="grid grid-cols-2 lg:flex lg:flex-row gap-4 sm:gap-6 lg:gap-0 mt-6 sm:mt-8">
+                  <div className="grid grid-cols-2 lg:flex lg:flex-row gap-4 mt-6 sm:mt-0">
                     {/* Stat 1 */}
-                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:border-r border-[#EEEFF2] lg:px-4 xl:px-6 py-4 hover:bg-gray-50 rounded-lg lg:rounded-none transition-colors duration-200">
-                      <FaDumbbell className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] sm:h-[50px] sm:w-[50px] lg:h-[55px] lg:w-[55px] rounded-full transition-transform hover:scale-110"/>
+                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:px-4 xl:px-6 py-4  rounded-lg lg:rounded-none transition-colors duration-200">
+                      <img src={dumbelIcon} className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] lg:h-[55px] lg:w-[55px] rounded-full"/>
                       <div>
                         <div className="text-xl sm:text-2xl lg:text-[25px] xl:text-3xl font-[Rubik] font-bold text-[#e4010c]">90+</div>
                         <div className="text-gray-600 font-[Rubik] font-normal text-sm sm:text-base lg:text-lg xl:text-[20px]">Workforce</div>
@@ -99,7 +100,7 @@ const HomePage = () => {
                     </div>
 
                     {/* Stat 2 */}
-                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:border-r border-[#EEEFF2] lg:px-4 xl:px-6 py-4 hover:bg-gray-50 rounded-lg lg:rounded-none transition-colors duration-200">
+                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:px-4 xl:px-6 py-4  rounded-lg lg:rounded-none transition-colors duration-200">
                       <PiHandshakeFill className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] sm:h-[50px] sm:w-[50px] lg:h-[55px] lg:w-[55px] rounded-full transition-transform hover:scale-110"/>
                       <div>
                         <div className="text-xl sm:text-2xl lg:text-[25px] xl:text-3xl font-[Rubik] font-bold text-[#e4010c]">40+</div>
@@ -108,8 +109,8 @@ const HomePage = () => {
                     </div>
 
                     {/* Stat 3 */}
-                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:border-r border-[#EEEFF2] lg:px-4 xl:px-6 py-4 hover:bg-gray-50 rounded-lg lg:rounded-none transition-colors duration-200">
-                      <FaUsers className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] sm:h-[50px] sm:w-[50px] lg:h-[55px] lg:w-[55px] rounded-full transition-transform hover:scale-110"/>
+                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:px-4 xl:px-6 py-4  rounded-lg lg:rounded-none transition-colors duration-200 sm:-ml-2">
+                      <img src={usersIcon} className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] lg:h-[55px] lg:w-[55px] rounded-full"/>
                       <div>
                         <div className="text-xl sm:text-2xl lg:text-[25px] xl:text-3xl font-[Rubik] font-bold text-[#e4010c]">1000+</div>
                         <div className="text-gray-600 font-[Rubik] font-normal text-sm sm:text-base lg:text-lg xl:text-[20px]">Trainings</div>
@@ -117,8 +118,8 @@ const HomePage = () => {
                     </div>
 
                     {/* Stat 4 */}
-                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:px-4 xl:px-6 py-4 hover:bg-gray-50 rounded-lg lg:rounded-none transition-colors duration-200">
-                      <SiLibreofficewriter className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] sm:h-[50px] sm:w-[50px] lg:h-[55px] lg:w-[55px] rounded-full transition-transform hover:scale-110"/>
+                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:px-4 xl:px-6 py-4  rounded-lg lg:rounded-none transition-colors duration-200">
+                      <img src={wordTextIcon} className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] lg:h-[55px] lg:w-[55px] rounded-full"/>
                       <div>
                         <div className="text-xl sm:text-2xl lg:text-[25px] xl:text-3xl font-[Rubik] font-bold text-[#e4010c]">60+</div>
                         <div className="text-gray-600 font-[Rubik] font-normal text-sm sm:text-base lg:text-lg xl:text-[20px]">Writeups</div>
@@ -138,8 +139,8 @@ const HomePage = () => {
           {/* About Us Section */}
           <section className="py-12 sm:py-16 lg:py-20 xl:py-20">
             <div className="w-full">
-              <div className="grid md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-center">
-                <div className="relative w-full max-w-4xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="relative w-full max-w-[33rem] mx-auto">
                   {/* Image */}
                   <div className="overflow-hidden rounded-lg">
                     <img
@@ -148,21 +149,6 @@ const HomePage = () => {
                       className="w-full h-96 sm:h-[28rem] lg:h-[32rem] object-cover transition-transform duration-500 hover:scale-105"
                     />
                   </div>
-
-                  {/* Controls */}
-                  <button
-                    onClick={prevSlide}
-                    className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/30 text-white w-10 h-10 flex items-center justify-center rounded-full"
-                  >
-                    &#8592;
-                  </button>
-                  <button
-                    onClick={nextSlide}
-                    className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/30 text-white w-10 h-10 flex items-center justify-center rounded-full"
-                  >
-                    &#8594;
-                  </button>
-
                   {/* Dots */}
                   <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
                     {images.map((_, index) => (
@@ -178,17 +164,17 @@ const HomePage = () => {
                 </div>
                 <div className="space-y-4 sm:space-y-5 lg:space-y-6">
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900">About Us</h2>
-                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-[inter]">
+                  <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed font-[inter]">
                     MyIT Consult Ltd is a Nigerian‑rooted consulting firm with an expanding African footprint. We co‑design evidence‑based strategies, capacity‑building programmes and digital solutions to strengthen institutions and empower people. Our multi‑disciplinary team of strategists, data analysts, technologists and trainers works alongside governments, businesses and social enterprises to translate ideas into actionable interventions that foster inclusive growth.
                   </p>
-                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                  <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed">
                     We deliver research, monitoring and evaluation, policy innovation, leadership development and digital transformation services, with innovation at the core of every engagement. 
                   </p>
-                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                  <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed">
                     Through platforms like the MYIT Digital Academy and MYIT Insight Series, we equip professionals and institutions with the tools they need to thrive in a dynamic world
                   </p>
 
-                  <button className="bg-[#e4010c] text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-md hover:bg-red-700 active:scale-95 transition-all duration-200 cursor-pointer text-sm sm:text-base font-medium shadow-md hover:shadow-lg mt-4">
+                  <button className="bg-[#e4010c] text-white px-12  py-2 rounded-2xl hover:bg-red-700 active:scale-95 transition-all duration-200 cursor-pointer text-sm sm:text-sm font-[inter] font-medium shadow-md hover:shadow-lg w-fit">
                     Learn More
                   </button>
                 </div>
