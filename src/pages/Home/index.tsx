@@ -14,6 +14,7 @@ import usersIcon from '../../assets/images/UsersFour.svg'
 import dumbelIcon from '../../assets/images/Barbell.svg'
 import wordTextIcon from '../../assets/images/ArticleNyTimes.svg'
 import { api, type Service, type Testimonial, type Partner } from '../../lib/api'
+import { Link } from 'react-router-dom'
 
 const HomePage = () => {
   const [services, setServices] = useState<Service[]>([])
@@ -77,55 +78,86 @@ const HomePage = () => {
             <div className='w-full'>
               <div className='flex flex-col lg:flex-row items-center lg:items-stretch'>
                 {/* Text Block */}
-                <div className='w-full lg:w-[60%] space-y-5 sm:space-y-2 lg:space-y-3 flex flex-col justify-center py-10 pt-20'>
-                  <h1 className='text-2xl sm:text-3xl lg:text-3xl xl:text-3xl font-medium leading-tight sm:leading-snug lg:leading-tight text-gray-900'>
-                    At MyIT Consult Ltd, we co-design evidence-based strategies and digital solutions that empower resilient institutions and inclusive growth.
-                  </h1>
-                  <p className='text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed max-w-2xl sm:-mt-3 font-[inter] font-medium'>
-                    We bridge data, strategy and technology to help institutions and innovators deliver measureable, sustainable impact.
-                  </p>
+                <div className='w-full lg:w-[60%] space-y-5 sm:space-y-2 lg:space-y-16 flex flex-col justify-center py-10'>
+                  <div className='space-y-5 sm:space-y-5'>
+                    <h1 className='text-2xl sm:text-3xl lg:text-3xl xl:text-3xl font-medium leading-tight sm:leading-snug lg:leading-tight text-gray-900'>
+                      At MyIT Consult Ltd, we co-design evidence-based strategies and digital solutions that empower resilient institutions and inclusive growth.
+                    </h1>
+                    <p className='text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl sm:-mt-3 font-[inter] font-medium leading-snug lg:leading-tight'>
+                      We bridge data, strategy and technology to help institutions and innovators deliver measureable, sustainable impact.
+                    </p>
+                    <Link to={'/about-us'}>
+                      <button className="bg-[#e4010c] text-white px-12  py-2 rounded-2xl hover:bg-red-700 active:scale-95 transition-all duration-200 cursor-pointer text-sm sm:text-sm font-[inter] font-medium shadow-md hover:shadow-lg w-fit">
+                        Learn More
+                      </button>
+                    </Link>
+                  </div>
 
-                  <button className="bg-[#e4010c] text-white px-12  py-2 rounded-2xl hover:bg-red-700 active:scale-95 transition-all duration-200 cursor-pointer text-sm sm:text-sm font-[inter] font-medium shadow-md hover:shadow-lg w-fit">
-                    Learn More
-                  </button>
-
-                  <div className="grid grid-cols-2 lg:flex lg:flex-row gap-4 mt-6 sm:mt-0">
+                  <div className="grid grid-cols-2 lg:flex lg:flex-row sm:mt-0 lg:divide-x lg:divide-gray-200">
+  
                     {/* Stat 1 */}
-                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:px-4 xl:px-6 py-4  rounded-lg lg:rounded-none transition-colors duration-200">
-                      <img src={dumbelIcon} className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] lg:h-[55px] lg:w-[55px] rounded-full"/>
+                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:px-4 xl:px-6 py-4 transition-colors duration-200">
+                      <img
+                        src={dumbelIcon}
+                        className="flex-none p-2 lg:p-2 bg-[#FFECEC] h-10 w-10 rounded-full"
+                      />
                       <div>
-                        <div className="text-xl sm:text-2xl lg:text-[25px] xl:text-3xl font-[Rubik] font-bold text-[#e4010c]">90+</div>
-                        <div className="text-gray-600 font-[Rubik] font-normal text-sm sm:text-base lg:text-lg xl:text-[20px]">Workforce</div>
+                        <div className="text-xl sm:text-[25px] font-[Rubik] font-bold text-[#e4010c]">
+                          90+
+                        </div>
+                        <div className="text-gray-600 font-[Rubik] font-normal text-sm sm:text-[20px]">
+                          Workforce
+                        </div>
                       </div>
                     </div>
 
                     {/* Stat 2 */}
-                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:px-4 xl:px-6 py-4  rounded-lg lg:rounded-none transition-colors duration-200">
-                      <PiHandshakeFill className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] sm:h-[50px] sm:w-[50px] lg:h-[55px] lg:w-[55px] rounded-full transition-transform hover:scale-110"/>
+                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:px-4 xl:px-6 py-4 transition-colors duration-200">
+                      <PiHandshakeFill className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-11 w-11 rounded-full" />
                       <div>
-                        <div className="text-xl sm:text-2xl lg:text-[25px] xl:text-3xl font-[Rubik] font-bold text-[#e4010c]">40+</div>
-                        <div className="text-gray-600 font-[Rubik] font-normal text-sm sm:text-base lg:text-lg xl:text-[20px]">Partnership</div>
+                        <div className="text-xl sm:text-[25px] font-[Rubik] font-bold text-[#e4010c]">
+                          40+
+                        </div>
+                        <div className="text-gray-600 font-[Rubik] font-normal text-sm sm:text-[20px]">
+                          Partnership
+                        </div>
                       </div>
                     </div>
 
                     {/* Stat 3 */}
-                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:px-4 xl:px-6 py-4  rounded-lg lg:rounded-none transition-colors duration-200 sm:-ml-2">
-                      <img src={usersIcon} className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] lg:h-[55px] lg:w-[55px] rounded-full"/>
+                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:px-4 xl:px-6 py-4 transition-colors duration-200">
+                      <img
+                        src={usersIcon}
+                        className="flex-none p-2 lg:p-3 bg-[#FFECEC] h-11 w-11 rounded-full"
+                      />
                       <div>
-                        <div className="text-xl sm:text-2xl lg:text-[25px] xl:text-3xl font-[Rubik] font-bold text-[#e4010c]">1000+</div>
-                        <div className="text-gray-600 font-[Rubik] font-normal text-sm sm:text-base lg:text-lg xl:text-[20px]">Trainings</div>
+                        <div className="text-xl sm:text-[25px] font-[Rubik] font-bold text-[#e4010c]">
+                          1000+
+                        </div>
+                        <div className="text-gray-600 font-[Rubik] font-normal text-sm sm:text-[20px]">
+                          Trainings
+                        </div>
                       </div>
                     </div>
 
-                    {/* Stat 4 */}
-                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:px-4 xl:px-6 py-4  rounded-lg lg:rounded-none transition-colors duration-200">
-                      <img src={wordTextIcon} className="flex-none p-2 lg:p-3 bg-[#FFECEC] text-[#E4010C] h-[45px] w-[45px] lg:h-[55px] lg:w-[55px] rounded-full"/>
+                    {/* Stat 4 (NO BORDER ON LAST) */}
+                    <div className="flex items-center gap-3 lg:flex-1 lg:gap-4 lg:px-4 xl:px-6 py-4 transition-colors duration-200">
+                      <img
+                        src={wordTextIcon}
+                        className="flex-none p-2 lg:p-3 bg-[#FFECEC] h-11 w-11 rounded-full"
+                      />
                       <div>
-                        <div className="text-xl sm:text-2xl lg:text-[25px] xl:text-3xl font-[Rubik] font-bold text-[#e4010c]">60+</div>
-                        <div className="text-gray-600 font-[Rubik] font-normal text-sm sm:text-base lg:text-lg xl:text-[20px]">Writeups</div>
+                        <div className="text-xl sm:text-[25px] font-[Rubik] font-bold text-[#e4010c]">
+                          60+
+                        </div>
+                        <div className="text-gray-600 font-[Rubik] font-normal text-sm sm:text-[20px]">
+                          Writeups
+                        </div>
                       </div>
                     </div>
+
                   </div>
+
                 </div>
 
                 <div className='w-full lg:w-[40%] relative overflow-hidden p-4'>
@@ -140,13 +172,13 @@ const HomePage = () => {
           <section className="py-12 sm:py-16 lg:py-20 xl:py-20">
             <div className="w-full">
               <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="relative w-full max-w-[33rem] mx-auto">
+                <div className="relative w-full max-w-[39rem] mx-auto">
                   {/* Image */}
                   <div className="overflow-hidden rounded-lg">
                     <img
                       src={images[current]}
                       alt={`Slide ${current + 1}`}
-                      className="w-full h-96 sm:h-[28rem] lg:h-[32rem] object-cover transition-transform duration-500 hover:scale-105"
+                      className="w-full h-96 sm:h-112 lg:h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
                   </div>
                   {/* Dots */}
@@ -164,19 +196,21 @@ const HomePage = () => {
                 </div>
                 <div className="space-y-4 sm:space-y-5 lg:space-y-6">
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900">About Us</h2>
-                  <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed font-[inter]">
+                  <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed font-[inter] text-justify">
                     MyIT Consult Ltd is a Nigerian‑rooted consulting firm with an expanding African footprint. We co‑design evidence‑based strategies, capacity‑building programmes and digital solutions to strengthen institutions and empower people. Our multi‑disciplinary team of strategists, data analysts, technologists and trainers works alongside governments, businesses and social enterprises to translate ideas into actionable interventions that foster inclusive growth.
                   </p>
-                  <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed">
+                  <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed text-justify">
                     We deliver research, monitoring and evaluation, policy innovation, leadership development and digital transformation services, with innovation at the core of every engagement. 
                   </p>
-                  <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed">
+                  <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed text-justify">
                     Through platforms like the MYIT Digital Academy and MYIT Insight Series, we equip professionals and institutions with the tools they need to thrive in a dynamic world
                   </p>
 
-                  <button className="bg-[#e4010c] text-white px-12  py-2 rounded-2xl hover:bg-red-700 active:scale-95 transition-all duration-200 cursor-pointer text-sm sm:text-sm font-[inter] font-medium shadow-md hover:shadow-lg w-fit">
-                    Learn More
-                  </button>
+                  <Link to={'/about-us'}>
+                    <button className="bg-[#e4010c] text-white px-12  py-2 rounded-2xl hover:bg-red-700 active:scale-95 transition-all duration-200 cursor-pointer text-sm sm:text-sm font-[inter] font-medium shadow-md hover:shadow-lg w-fit">
+                      Learn More
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
