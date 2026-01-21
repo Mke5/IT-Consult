@@ -15,7 +15,7 @@ import wordTextIcon from '../../assets/images/ArticleNyTimes.svg'
 import Monitor from '../../assets/images/Monitor.svg'
 import Star from '../../assets/images/Star.svg'
 import { api, type Service, type Testimonial, type Partner } from '../../lib/api'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 
 const HomePage = () => {
@@ -24,27 +24,35 @@ const HomePage = () => {
       id: 1,
       title: "Research and Evaluation",
       description: "Driving Evidence-Based Development",
-      icon: Star, // replace with icon name or path
+      icon: Star,
+      category: "research",
+      serviceId: "research-1",
     },
     {
       id: 2,
       title: "System Strengthening & Organization Development",
       description: "Enhancing Institutional Capacity",
       icon: Star,
+      category: "systems",
+      serviceId: "sys-1",
     },
-      {
-        id: 3,
-        title: "Professional Development and Career Strengthening",
-        description: "Professional Development & Career Strengthening",
-        icon: Monitor,
-      },
-      {
-        id: 4,
-        title: "Information Technology Solutions",
-        description: "From concept to launch, we create stunning, user-centric websites",
-        icon: Monitor,
-      },
+    {
+      id: 3,
+      title: "Professional Development and Career Strengthening",
+      description: "Empowering Future-Ready Professionals",
+      icon: Monitor,
+      category: "professional",
+      serviceId: "pro-1",
+    },
+    {
+      id: 4,
+      title: "Information Technology Solutions",
+      description: "From concept to launch",
+      icon: Monitor,
+      category: "it",
+    },
   ]
+
   const [testimonials, setTestimonials] = useState<Testimonial[]>([])
   const [partners, setPartners] = useState<Partner[]>([])
   const [loading, setLoading] = useState(true)
@@ -59,7 +67,7 @@ const HomePage = () => {
   // const prevSlide = () => {
   //   setCurrent((current - 1 + images.length) % images.length);
   // };
-
+  const navigate = useNavigate();
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
@@ -78,13 +86,13 @@ const HomePage = () => {
         console.log('Services fetched:', servicesData)
         console.log('Testimonials fetched:', testimonialsData)
         console.log('Partners fetched:', partnersData)
-        setServices(servicesData)
+        // setServices(servicesData)
         setTestimonials(testimonialsData)
         setPartners(partnersData)
       } catch (error) {
         console.error('Error fetching data:', error)
         // Set empty arrays on error so UI shows "No services available" instead of loading forever
-        setServices([])
+        // setServices([])
         setTestimonials([])
         setPartners([])
       } finally {
@@ -107,12 +115,9 @@ const HomePage = () => {
                 {/* Text Block */}
                 <div className='w-full lg:w-[60%] space-y-5 sm:space-y-2 lg:space-y-16 flex flex-col justify-center py-10'>
                   <div className='space-y-5 sm:space-y-5'>
-                    <h1 className='text-2xl sm:text-3xl lg:text-3xl xl:text-3xl font-medium leading-tight sm:leading-snug lg:leading-tight text-gray-900'>
-                      At MyIT Consult Ltd, we co-design evidence-based strategies and digital solutions that empower resilient institutions and inclusive growth.
+                    <h1 className='text-2xl font-medium leading-tight sm:leading-snug lg:leading-tight text-gray-900'>
+                      At MyIT CONSULT LTD, We turn data into decisions by partnering with governments, organsations, and enterprises to deliver evidence-driven strategy, institutional strengthening, and digital transformation that improves outcomes through research, MERL, Third-Party Monitoring (TPM), institutional development and support, capacity building and training, policy innovation and information Technology solutions.
                     </h1>
-                    <p className='text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl sm:-mt-3 font-[inter] font-medium leading-snug lg:leading-tight'>
-                      We bridge data, strategy and technology to help institutions and innovators deliver measureable, sustainable impact.
-                    </p>
                     <Link to={'/about-us'}>
                       <button className="bg-[#e4010c] text-white px-12  py-2 rounded-2xl hover:bg-red-700 active:scale-95 transition-all duration-200 cursor-pointer text-sm sm:text-sm font-[inter] font-medium shadow-md hover:shadow-lg w-fit">
                         Learn More
@@ -224,14 +229,17 @@ const HomePage = () => {
                 <div className="space-y-4 sm:space-y-5 lg:space-y-6">
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900">About Us</h2>
                   <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed font-[inter] text-justify">
-                    MyIT Consult Ltd is a Nigerian‑rooted consulting firm with an expanding African footprint. We co‑design evidence‑based strategies, capacity‑building programmes and digital solutions to strengthen institutions and empower people. Our multi‑disciplinary team of strategists, data analysts, technologists and trainers works alongside governments, businesses and social enterprises to translate ideas into actionable interventions that foster inclusive growth.
+                    MyIT Consult Ltd is a dynamic social enterprise and development consultancy firm, Nigerian-rooted with an expanding African footprint, dedicated to fostering sustainable and inclusive development. Established in 2016, we specialize in delivering meticulous data, information management services and evidence driven analysis, particularly within crisis, disaster, and displacement contexts.
                   </p>
                   <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed text-justify">
-                    We deliver research, monitoring and evaluation, policy innovation, leadership development and digital transformation services, with innovation at the core of every engagement. 
+                    We work with a muliti-disciplinary team of strategists, data analysts, technologists, and trainers to co-design practical solutions that translate ideas into actionable interventions. Through tailored insights and applied expertise, we empower clients make informd decisions, deliver precise assistance to vulnerable populations, shape policy, strengthen institutions, and drive societal development by equipping individuals and organisations with essential knowledge, information, and skills. 
                   </p>
-                  <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed text-justify">
-                    Through platforms like the MYIT Digital Academy and MYIT Insight Series, we equip professionals and institutions with the tools they need to thrive in a dynamic world
-                  </p>
+                  {/* <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed text-justify">
+                    We serve a wide array of clients, including individuals, agencies, government ministries, UN bodies, development organizations, NGOs, foundations, and businesses. Our expertise spans-data collection and management, Monitoring, Evaluation, Research and Learning (MERL), Third-Party Monitoring (TPM), institutional development and support, capacity building an training, and Information Technology solutions. We also deliver policy innovation, leadership development, and digital transformation services, with innnovation at the core of every engagement
+                  </p> */}
+                   {/* <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed text-justify">
+                    Through platforms like the MYIT Digital Academy and MYIT Insight Series, we equip professionals and institutions with the tools, skills, and frameworks they need to thrive in a dynamic world, strengthening performance, accelerating impact, and enabling sustainable results.
+                  </p> */}
 
                   <Link to={'/about-us'}>
                     <button className="bg-[#e4010c] text-white px-12  py-2 rounded-2xl hover:bg-red-700 active:scale-95 transition-all duration-200 cursor-pointer text-sm sm:text-sm font-[inter] font-medium shadow-md hover:shadow-lg w-fit">
@@ -267,7 +275,16 @@ const HomePage = () => {
               ) : services.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 font-[inter] ">
                   {services.map((service) => (
-                    <div key={service.id} className="bg-white shadow-md p-5 text-start hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <div key={service.id} onClick={() => {
+                      navigate(
+                        `/what-we-do#cate`, {
+                          state: { 
+                            category: service.category, 
+                            serviceId: service.serviceId 
+                          }
+                        }
+                      )
+                    }} className="bg-white shadow-md p-5 text-start hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
                       <div className="w-12 h-12 bg-[#FFE5E5] rounded-lg mb-4 sm:mb-5 flex items-center justify-center transition-colors duration-300">
                         <img src={service.icon} alt="" className='w-6 h-6 text-[#E4010C] group-hover:text-white transition-colors duration-300' />
                       </div>
@@ -340,7 +357,7 @@ const HomePage = () => {
               {loading ? (
                 <div className="flex gap-4 sm:gap-6 overflow-x-auto w-full pb-4">
                   {[1, 2, 3].map((i) => (
-                    <div key={i} className="bg-white border border-gray-200 p-6 sm:p-8 rounded-xl min-w-[280px] sm:min-w-[320px] lg:min-w-[350px] animate-pulse flex-shrink-0">
+                    <div key={i} className="bg-white border border-gray-200 p-6 sm:p-8 rounded-xl min-w-[280px] sm:min-w-[320px] lg:min-w-[350px] animate-pulse shrink-0">
                       <div className="w-12 h-12 bg-gray-200 rounded-full mb-4"></div>
                       <div className="h-4 bg-gray-200 rounded mb-2"></div>
                       <div className="h-4 bg-gray-200 rounded w-3/4"></div>
@@ -357,7 +374,7 @@ const HomePage = () => {
                     `}
                   </style>
                   {testimonials.map((testimonial) => (
-                    <div key={testimonial.id} className="bg-white border border-gray-200 p-6 sm:p-8 rounded-xl min-w-[280px] sm:min-w-[320px] lg:min-w-[350px] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex-shrink-0">
+                    <div key={testimonial.id} className="bg-white border border-gray-200 p-6 sm:p-8 rounded-xl min-w-[280px] sm:min-w-[320px] lg:min-w-[350px] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 shrink-0">
                       <div className="flex items-center mb-4">
                         {testimonial.image ? (
                           <img src={testimonial.image} alt={testimonial.name} className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover"/>

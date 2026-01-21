@@ -29,8 +29,10 @@ export interface Resource {
 export interface Service {
   id: number;
   title: string;
-  description: string | null;
+  description: string;
   icon: string;
+  category: "research" | "systems" | "professional" | "it";
+  serviceId?: string;
 }
 
 export interface TeamMember {

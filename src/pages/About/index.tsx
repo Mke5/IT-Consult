@@ -111,9 +111,7 @@ const AboutPage = () => {
                       Our Mission
                     </h2>
                     <p className="text-[17px] sm:text-[20px] lg:text-md font-normal text-black font-[inter] leading-6 tracking-[0.5px] text-justify mb-6">
-                      To partner with public, private and social sector leaders to generate and apply data-driven evidence,
-                      strengthen people and institutions, and deploy technology solutions that improve decision-making and
-                      advance sustainable development.
+                      To deliver evidence-driven research, MERL, policy innovation, institutional strengthening and digital transformation solutions that enable smarter decisions, stronger systems, and sustainable results across development, humanitarian, and privat sector enviroments.
                     </p>
                   </div>
 
@@ -123,8 +121,7 @@ const AboutPage = () => {
                       Our Vision
                     </h2>
                     <p className="text-[17px] sm:text-[20px] lg:text-md font-normal text-black font-[inter] leading-6 tracking-[0.5px] text-justify mb-6">
-                      "A world where decisions are powered by evidence, institutions are resilient, and development is
-                      sustainable for all."
+                      To be a leading African force for evidence, innovation, and institutional excellence transforming data into action and enabling sustainable progress for all.
                     </p>
                   </div>
                 </div>
@@ -211,7 +208,7 @@ const AboutPage = () => {
                             01
                           </span>
                           <span className="text-xl sm:text-xl leading-snug">
-                            Research & Evaluation
+                            Research & Evaluation – Driving Evidence-Based Development
                           </span>
                         </div>
 
@@ -240,11 +237,11 @@ const AboutPage = () => {
                           "
                         >
                         <p>
-                            We Provide comprehensive research, monitoring, and evaluation services to ensure programs are strategically designed, effectively implemented, and impactful. Our exprtise include:
+                            We provide comprehensive research, monitoring, and evaluation services to ensure programs are strategically designed, effectively implemented, and impactful. Our expertise includes:
                             <ul className="list-disc pl-6 space-y-2">
-                            <li>Impact Assessment & Programs Evaluations: Maeasuring, ensuring accountability, and optimizing program strategies.</li>
-                            <li>Theory of Change & Result-Based Management: Designing frameworks that drive sustainable outcomes</li>
-                            <li>Humanitarian Response & Rapid Needs Assessments: Supporting organizations in crisis settings to enhance resillience and emergency response</li>
+                              <li><b>Impact Assessments & Program Evaluations:</b> Measuring effectiveness, ensuring accountability, and optimizing program strategies.</li>
+                              <li><b>Theory of Change & Result-Based Management:</b> Designing frameworks that drive sustainable outcomes</li>
+                              <li><b>Humanitarian Response & Rapid Needs Assessments:</b> Supporting organizations in crisis settings to enhance resillience and emergency response</li>
                             </ul>
                         </p>
                         <p>
@@ -272,7 +269,7 @@ const AboutPage = () => {
                               02
                             </span>
                             <span className="text-xl sm:text-xl leading-snug">
-                              System Strengthening & Organization Control Development
+                              Systems Strengthening & Organizational Development – Enhancing Institutional Capacity
                             </span>
                           </div>
                           <span className={`flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 text-xl sm:text-2xl font-bold rounded-full border leading-none shrink-0 ${openItem !== 'item-2' ? 'bg-[#F3F3F3]' : '' }`}>
@@ -294,7 +291,17 @@ const AboutPage = () => {
                         "
                         >
                         <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae tempore debitis reprehenderit! Quisquam in incidunt quasi atque assumenda deleniti obcaecati nemo, minima est dolore voluptate corporis quos odit commodi! Provident molestias iusto deserunt eaque aperiam tempora amet dolor facere magnam sequi ad, sint praesentium reiciendis delectus blanditiis nam sunt sed.
+                          We help organizations build stronger systems, improve governance, and enhance operational efficiency. Our services include:
+                          <ul className="list-disc pl-6 space-y-2">
+                            <li><b>Organizational Capacity Assessments & Strategic Planning:</b> Identifying key strengths, addressing gaps, and designing strategies for long-term success.</li>
+                            <li><b>Policy Analysis & Institutional Reforms:</b> Supporting government agencies and institutions in implementing transformative policies.</li>
+                            <li><b>Performance Monitoring Systems & Custom Reporting Dashboards:</b> Equipping organizations with data-driven tracking mechanisms for continuous improvement</li>
+                            <li><b>Executive Leadership & Team Building:</b> Strengthening leadership skills and fostering collaborative, high-performing teams.</li>
+                            <li><b>Talent Acquisition & Third-Party Recruitment:</b> Helping organizations attract, retain, and develop top-tier professionals.</li>
+                          </ul>
+                        </p>
+                        <p>
+                          Our sector-specific expertise and tailored solutions ensure that organizations remain agile, resilient, and equipped to navigate evolving challenges.
                         </p>
                         </AccordionContent>
                     </AccordionItem>
@@ -317,7 +324,7 @@ const AboutPage = () => {
                               03
                             </span>
                             <span className="text-xl sm:text-xl leading-snug">
-                              Professional Development & Career Stregnthening 
+                              Professional Development & Career Strengthening – Empowering Future-Ready Professionals
                             </span>
                           </div>
 
@@ -341,7 +348,15 @@ const AboutPage = () => {
                         "
                         >
                         <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, eaque? Eligendi, velit. Laborum rerum qui facere corporis deleniti possimus harum facilis adipisci, sint exercitationem iste! Labore modi animi dolorum, corrupti ex neque provident doloribus quibusdam ipsa inventore dolores veniam eos reprehenderit mollitia iusto ut ea corporis nostrum voluptatibus totam! Dolores.
+                          We are committed to building the next generation of leaders through strategic career development, mentorship, and skill-building programs. Our offerings include:
+                          <ul className="list-disc pl-6 space-y-2">
+                            <li><b>Career Coaching & Mentorship Programs:</b> Connecting professionals with seasoned industry leaders to provide guidance, career insights, and professional growth strategies.</li>
+                            <li><b>Professional Development Masterclasses:</b> Training individuals in project management, monitoring & evaluation, leadership, negotiation, communication, and conflict resolution.</li>
+                            <li><b>Sector-Specific Capacity Building:</b> Equipping professionals with practical tools and real-world knowledge to thrive in their careers.</li>
+                          </ul>
+                        </p>
+                        <p>
+                          Whether you’re an emerging professional, transitioning into leadership, or looking to enhance your expertise, MyIT Consult Ltd provides the resources and support needed to excel, grow, and make a lasting impact.
                         </p>
                         </AccordionContent>
                     </AccordionItem>
