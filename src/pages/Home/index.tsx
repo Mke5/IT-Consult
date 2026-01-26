@@ -115,14 +115,14 @@ const HomePage = () => {
                 {/* Text Block */}
                 <div className='w-full lg:w-[60%] space-y-5 sm:space-y-2 lg:space-y-16 flex flex-col justify-center py-10'>
                   <div className='space-y-5 sm:space-y-5'>
-                    <h1 className='text-2xl font-medium leading-tight sm:leading-snug lg:leading-tight text-gray-900'>
+                    <h1 className='font-[Inter] text-xl font-medium leading-relaxed text-gray-900'>
                       At MyIT CONSULT LTD, We turn data into decisions by partnering with governments, organsations, and enterprises to deliver evidence-driven strategy, institutional strengthening, and digital transformation that improves outcomes through research, MERL, Third-Party Monitoring (TPM), institutional development and support, capacity building and training, policy innovation and information Technology solutions.
                     </h1>
-                    <Link to={'/about-us'}>
+                    {/* <Link to={'/about-us'}>
                       <button className="bg-[#e4010c] text-white px-12  py-2 rounded-2xl hover:bg-red-700 active:scale-95 transition-all duration-200 cursor-pointer text-sm sm:text-sm font-[inter] font-medium shadow-md hover:shadow-lg w-fit">
                         Learn More
                       </button>
-                    </Link>
+                    </Link> */}
                   </div>
 
                   <div className="grid grid-cols-2 lg:flex lg:flex-row sm:mt-0 lg:divide-x lg:divide-gray-200">
@@ -228,18 +228,18 @@ const HomePage = () => {
                 </div>
                 <div className="space-y-4 sm:space-y-5 lg:space-y-6">
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900">About Us</h2>
-                  <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed font-[inter] text-justify">
+                  <p className="text-[17px] lg:text-md text-black leading-relaxed font-[inter] text-justify">
                     MyIT Consult Ltd is a dynamic social enterprise and development consultancy firm, Nigerian-rooted with an expanding African footprint, dedicated to fostering sustainable and inclusive development. Established in 2016, we specialize in delivering meticulous data, information management services and evidence driven analysis, particularly within crisis, disaster, and displacement contexts.
                   </p>
-                  <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed text-justify">
+                  <p className="text-[17px] lg:text-md text-black leading-relaxed text-justify">
                     We work with a muliti-disciplinary team of strategists, data analysts, technologists, and trainers to co-design practical solutions that translate ideas into actionable interventions. Through tailored insights and applied expertise, we empower clients make informd decisions, deliver precise assistance to vulnerable populations, shape policy, strengthen institutions, and drive societal development by equipping individuals and organisations with essential knowledge, information, and skills. 
                   </p>
-                  {/* <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed text-justify">
+                  <p className="text-[17px] lg:text-md text-black leading-relaxed text-justify">
                     We serve a wide array of clients, including individuals, agencies, government ministries, UN bodies, development organizations, NGOs, foundations, and businesses. Our expertise spans-data collection and management, Monitoring, Evaluation, Research and Learning (MERL), Third-Party Monitoring (TPM), institutional development and support, capacity building an training, and Information Technology solutions. We also deliver policy innovation, leadership development, and digital transformation services, with innnovation at the core of every engagement
-                  </p> */}
-                   {/* <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed text-justify">
+                  </p>
+                  <p className="text-[17px] lg:text-md text-black leading-relaxed text-justify">
                     Through platforms like the MYIT Digital Academy and MYIT Insight Series, we equip professionals and institutions with the tools, skills, and frameworks they need to thrive in a dynamic world, strengthening performance, accelerating impact, and enabling sustainable results.
-                  </p> */}
+                  </p>
 
                   <Link to={'/about-us'}>
                     <button className="bg-[#e4010c] text-white px-12  py-2 rounded-2xl hover:bg-red-700 active:scale-95 transition-all duration-200 cursor-pointer text-sm sm:text-sm font-[inter] font-medium shadow-md hover:shadow-lg w-fit">

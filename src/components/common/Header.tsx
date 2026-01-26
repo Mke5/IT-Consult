@@ -139,8 +139,9 @@ const Header = () => {
                                     Projects
                                 </Link>
 
-                                <Link 
-                                    to="/skill-up" 
+                                <a 
+                                    href="https://myitacademy.com.ng"
+                                    target="_blank"
                                     className={`text-sm xl:text-base font-medium px-3 py-2 rounded-md transition-all duration-200 ${
                                         isActive('/skill-up') 
                                             ? 'text-[#e4010c] bg-red-50 border border-[#e4010c]' 
@@ -148,7 +149,7 @@ const Header = () => {
                                     }`}
                                 >
                                     Skill-Up Academy
-                                </Link>
+                                </a>
 
                                 <Link 
                                     to="/resources" 
@@ -251,8 +252,9 @@ const Header = () => {
                                     Projects
                                 </Link>
 
-                                <Link 
-                                    to="/skill-up" 
+                                <a 
+                                    href="https://myitacademy.com.ng"
+                                    target="_blank"
                                     className={`text-base font-medium py-3 px-4 rounded-md transition-all duration-200 ${
                                         isActive('/skill-up') 
                                             ? 'text-[#e4010c] bg-red-50 border border-[#e4010c]' 
@@ -261,7 +263,7 @@ const Header = () => {
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     Skill-Up Academy
-                                </Link>
+                                </a>
 
                                 <Link 
                                     to="/resources" 

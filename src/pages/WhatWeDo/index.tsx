@@ -134,6 +134,16 @@ const SERVICES_DATA: ServicesData  = {
             }
 
         ]
+    },
+    it: {
+        heading: "Information Technology Solutions -",
+        services: [
+            {
+                id: "it-1",
+                title: "Impact & Rapid Needs Assessment",
+                description: `Impact & Rapid Needs Assessment supports organizations and project teams to evaluate the effects of interventions or crises on target populations and to quickly identify their most pressing needs. This assessment ensures resources are allocated effectively and interventions are tailored to address specific challenges. MyIT Consult leverages advanced data analytics, digital tools, and participatory approaches to deliver rapid and accurate assessments. Our innovative methodologies enable clients to make data-driven decisions, respond swiftly to emerging needs, and maximize their impact in dynamic environments.`
+            },
+        ]
     }
 }
 
@@ -146,7 +156,7 @@ const WhatWeDo = () => {
         return "";
     });
     const [activeCategory, setActiveCategory] = useState(() => {
-        if(location.state.category && SERVICES_DATA[location.state.category]){
+        if(location.state?.category && SERVICES_DATA[location.state.category]){
             return location.state.category;
         }else{
             return "research"
