@@ -69,33 +69,58 @@ const SERVICES_DATA: ServicesData  = {
         services: [
             {
                 id: "pro-1",
-                title: "Introduction to Monitoring & Evaluation Course",
-                description: `Introduction to Monitoring & Evaluation Course provides foundational knowledge and skills in the principles and practices of monitoring and evaluation (M&E) in the development sector. This course is designed for professionals seeking to understand how to measure program effectiveness, track progress, and ensure accountability. MyIT Consult offers an innovative and interactive learning experience, combining theoretical concepts with practical tools andreal-world case studies. Our course equips participants with the expertise to design robust M&E frameworks, collect and analyze data, and use findings to improve program outcomes, making it an essential resource for anyone aiming to enhance their impact in the development field.`
+                title: "Career Catalyst: Skills, Strategy, & Mentorship",
+                description: `A structured career acceleration program designed to equip participants with in-demand professional skills, strategic career planning tools, and guided mentorship. Participants gain clarity, confidence, and practical frameworks to navigate career transitions, secure opportunities, and achieve long-term professional growth.`
             },
             {
                 id: "pro-2",
-                title: "Introduction to Project Management",
-                description: `Introduction to Project Management is a comprehensive course that covers the core principles, methodologies, and tools for effective project management. It is tailored for individuals or professionals looking to manage development projects efficiently, ensuring they are delivered on time, within budget, and with measurable results. MyIT Consult’s course stands out by integrating cutting-edge project management techniques with sector-specific insights. Through hands-on exercises and real-life scenarios, participants learn to plan, execute, and monitor projects successfully, empowering them to lead initiatives that drive sustainable change.`
+                title: "Work place Excellence & Productivity Accelerator ",
+                description: `A results-oriented training program focused on building high-performance workplace habits, collaboration skills, and productivity systems. Participants learn practical techniques to manage time, priorities, and workflows effectively while driving excellence, accountability, and impact in professional environments.`
             },
             {
                 id: "pro-3",
-                title: "Introduction to Project Management for Development Professionals",
-                description: `At MyIT Consult Ltd, our Introduction to Project Management for Development Professionals course is designed to equip individuals with the foundational skills and knowledge needed to manage development projects effectively. This offering is tailored for professionals seeking to enhance their project management capabilities and ensure the successful implementation of development initiatives. Through interactive workshops, practical tools, and real-world case studies, participants gain a comprehensive understanding of key project management principles. Our training emphasizes the unique challenges of managing projects in the development sector, such as stakeholder engagement, resource optimization, and adaptive management. This course is ideal for individuals new to project management or those looking to refine their skills. MyIT Consult’s commitment to excellence ensures that participants leave with the tools and confidence to manage projects effectively, driving positive change in heir organizations and communities.`
+                title: "Work Smarter with AI: Professional Productivity Certification",
+                description: `A practical certification program that empowers professionals to leverage AI tools for smarter work, faster execution, and improved decision-making. Participants gain hands-on experience using AI to automate tasks, enhance productivity, optimize workflows, and stay competitive in a rapidly evolving digital workplace.`
             },
             {
                 id: "pro-4",
-                title: "Leadership & Strategy",
-                description: `Our Leadership & Strategy Course focuses on developing the skills and mindset needed to lead teams and organizations effectively in the dynamic development sector. This training emphasizes strategic thinking, decision-making, and innovation to address complex challenges and achieve long-term goals. MyIT Consult’s approach to this training combines expert guidance with practical tools, enabling participants to inspire teams, foster collaboration, and implement strategies that deliver impactful results. We ensure that leaders are well-equipped to navigate uncertainties and drive transformative change in their organizations.`
+                title: "NonProfit Launchpad & Grants Mastery: Build Systems, Secure Funding, Deliver Impact ",
+                description: `A comprehensive capacity-building program designed to support nonprofit founders and teams in establishing strong organizational systems, developing fundable programs, and securing grants. Participants learn end-to-end grant readiness, proposal development, compliance, and impact delivery aligned with donor expectations and global best practices.`
             },
             {
                 id: "pro-5",
-                title: "Business Development",
-                description: `Business Development provides professionals with the tools and strategies to identify opportunities, build partnerships, and secure funding for development initiatives. This course is essential for organizations iming to expand their reach and sustainability. MyIT Consult’s business development training offers a unique blend of theoretical knowledge and practical insights, helping participants craft compelling proposals, engage stakeholders, and create value-driven partnerships. Our innovative approach ensures that organizations can grow strategically while maintaining their commitment to impact.`
+                title: "Speak with Impact: Public Speaking Accelerator",
+                description: `A Public Speaking, and confidence-building accelerator designed to help participants communicate with clarity, influence, and authenticity. Through practical exercises and performance techniques, participants strengthen presentation skills, overcome stage anxiety, and deliver compelling messages across professional, leadership, and public platforms.`
             },
             {
                 id: "pro-6",
-                title: "Career Guide Mentorship",
-                description: `Career Guide Mentorship is a personalized program designed to support individuals and professionals in navigating their career paths in different sectors. We offer tailored advice, skill-building opportunities, and networking support to help individuals achieve their career goals. MyIT Consult’s mentorship program connects participants with experienced professionals who provide guidance, share insights, and help mentees unlock their potential. We prioritize individual growth and empower participants to build fulfilling and impactful careers.`
+                title: "Python Programming for Beginners",
+                description: `A beginner-friendly, hands-on programming course introducing the fundamentals of Python. Participants learn core programming concepts, problem-solving techniques, and practical applications, building a strong foundation for careers in technology, data, automation, and software development.`
+            },
+            {
+                id: "pro-7",
+                title: "MERL Basics Course",
+                description: `A foundational course introducing Monitoring, Evaluation, Research, and Learning (MERL) concepts for development and nonprofit professionals. Participants gain practical knowledge of indicators, data collection tools, reporting, and learning frameworks to support evidence-based programming and accountability.`
+            },
+            {
+                id: "pro-8",
+                title: "Data Analysis",
+                description: `A practical data analysis training program focused on transforming raw data into actionable insights. Participants learn data cleaning, analysis, visualization, and interpretation techniques using real-world datasets to support informed decision-making across business, development, and research contexts.`
+            },
+            {
+                id: "pro-9",
+                title: "MERL Advanced Course",
+                description: `An advanced, practice-driven MERL program designed for professionals seeking to deepen their analytical, evaluative, and learning capabilities. Participants strengthen skills in advanced indicators, evaluation design, data analysis, adaptive learning, and reporting for high-impact programs and donor-aligned results.`
+            },
+            {
+                id: "pro-10",
+                title: "SEO and Digital Visibility Training Program",
+                description: `A hands-on certificate program to help you rank on Google, run effective campaigns, track performance, and grow online visibility with a clear, implementable strategy.`
+            },
+            {
+                id: "pro-11",
+                title: "Transformative Leadership & Strategy Excellence Programme",
+                description: `This programme balances private-sector leadership essentials with insights applicable to public service, creating a rich learning environment for directors, entrepreneurs, government officials, and public sector executivesalike. Across five intensive days, participants will hone strategic thinking, strengthen leadership competencies, and cultivate the confidence to lead change.`
             },
         ]
     },

@@ -90,7 +90,13 @@ const ContactPage = () => {
             {/* Right Side - Map */}
             <div className="relative">
               <div className="w-full h-[300px] sm:h-[350px] lg:h-[450px] rounded-lg overflow-hidden">
-                <img src={Map} className="w-full h-full object-cover" />
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d806.056045331756!2d13.13714647457358!3d11.80892422359616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x11049fe22891c377%3A0xa518a8eba292ea8b!2sMyIT%20Consult%20Ltd!5e1!3m2!1sen!2sng!4v1769878270150!5m2!1sen!2sng"
+                  className="w-full h-full border-0"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
             </div>
 

@@ -45,71 +45,32 @@ const AboutPage = () => {
         <Container>
 
           {/* Hero Section */}
-          <section className="w-full p-1 sm:p-10 sm:pb-0">
+          <section className="w-full p-1 sm:pb-4">
             <div className="container mx-auto">
 
               {/* Stack on mobile, row on desktop */}
-              <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-stretch">
-
-                {/* Left Image (Stacked on mobile) */}
-                <div className="w-full lg:w-[40%] overflow-hidden">
-                  <img src={Hero1} className="w-full h-full object-cover" />
-                </div>
-
-                {/* Right Content */}
-                <div className="w-full lg:w-[60%]">
-
-                  {/* ABOUT US label */}
-                  {/* <p className="text-[10px] sm:text-[12px] lg:text-[14px] font-normal text-[#e4010c] font-['Sora'] leading-3 sm:leading-4 lg:leading-[18px] uppercase mb-3">
-                    ABOUT US
-                  </p> */}
-
-                  {/* Small icon image */}
-                  {/* <img 
-                    src={image1}
-                    className="w-14 sm:w-16 lg:w-20 object-contain mb-3"
-                  /> */}
-
-                  {/* Heading */}
+              <div className="flex flex-col gap-4 items-stretch">
+                <div>
                   <h1 className="mt-3 text-[25px] sm:text-[32px] lg:text-[40px] font-bold text-[#0e2a46] font-['Poppins'] leading-[30px] sm:leading-[38px] lg:leading-[49px] capitalize w-full mb-3">
                     <span>Empowering Organisations. Driving </span>
                     <span className="text-[#e4010c]">Impact</span>
                   </h1>
-
-                  {/* Paragraph */}
-                  {/* <p className="text-[17px] font-normal text-black font-[inter] leading-6 tracking-[0.5px] text-justify w-full mb-6">
-                    MyIT Consult Ltd is a Nigerian-rooted consulting firm with an expanding African footprint. 
-                    We co-design evidence-based strategies, capacity-building programmes and digital solutions 
-                    to strengthen institutions and empower people. Our multi-disciplinary team of strategists, 
-                    data analysts, technologists and trainers works alongside governments, businesses and social 
-                    enterprises to translate ideas into actionable interventions that foster inclusive growth.
-                    <br /><br />
-                    We deliver research, monitoring and evaluation, policy innovation, leadership development and 
-                    digital transformation services, with innovation at the core of every engagement.
-                    <br /><br />
-                    Through platforms like the MYIT Digital Academy and MYIT Insight Series, we equip professionals 
-                    and institutions with the tools they need to thrive in a dynamic world.
-                  </p> */}
-                  <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed font-[inter] text-justify">
+                  <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed font-[Sora] text-justify">
                     MyIT Consult Ltd is a dynamic social enterprise and development consultancy firm, Nigerian-rooted with an expanding African footprint, dedicated to fostering sustainable and inclusive development. Established in 2016, we specialize in delivering meticulous data, information management services and evidence driven analysis, particularly within crisis, disaster, and displacement contexts.
                   </p>
-                  <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed text-justify">
-                    We work with a muliti-disciplinary team of strategists, data analysts, technologists, and trainers to co-design practical solutions that translate ideas into actionable interventions. Through tailored insights and applied expertise, we empower clients make informd decisions, deliver precise assistance to vulnerable populations, shape policy, strengthen institutions, and drive societal development by equipping individuals and organisations with essential knowledge, information, and skills. 
-                  </p>
                 </div>
-              </div>
-            </div>
-          </section>
+                <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed font-[Sora] text-justify">
+                  We work with a muliti-disciplinary team of strategists, data analysts, technologists, and trainers to co-design practical solutions that translate ideas into actionable interventions. Through tailored insights and applied expertise, we empower clients make informd decisions, deliver precise assistance to vulnerable populations, shape policy, strengthen institutions, and drive societal development by equipping individuals and organisations with essential knowledge, information, and skills. 
+                </p>
 
-          <section className='w-full'>
-            <div className="container mx-auto">
-              <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed text-justify">
-                We serve a wide array of clients, including individuals, agencies, government ministries, UN bodies, development organizations, NGOs, foundations, and businesses. Our expertise spans-data collection and management, Monitoring, Evaluation, Research and Learning (MERL), Third-Party Monitoring (TPM), institutional development and support, capacity building an training, and Information Technology solutions. We also deliver policy innovation, leadership development, and digital transformation services, with innnovation at the core of every engagement
-              </p>
-              
-              <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed text-justify">
-                Through platforms like the MYIT Digital Academy and MYIT Insight Series, we equip professionals and institutions with the tools, skills, and frameworks they need to thrive in a dynamic world, strengthening performance, accelerating impact, and enabling sustainable results.
-              </p>
+                <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed font-[Sora] text-justify">
+                  We serve a wide array of clients, including individuals, agencies, government ministries, UN bodies, development organizations, NGOs, foundations, and businesses. Our expertise spans-data collection and management, Monitoring, Evaluation, Research and Learning (MERL), Third-Party Monitoring (TPM), institutional development and support, capacity building an training, and Information Technology solutions. We also deliver policy innovation, leadership development, and digital transformation services, with innnovation at the core of every engagement
+                </p>
+
+                <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed font-[Sora] text-justify">
+                  Through platforms like the MYIT Digital Academy and MYIT Insight Series, we equip professionals and institutions with the tools, skills, and frameworks they need to thrive in a dynamic world, strengthening performance, accelerating impact, and enabling sustainable results.
+                </p>
+              </div>
             </div>
           </section>
 

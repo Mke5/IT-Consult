@@ -57,23 +57,23 @@ const HomePage = () => {
   const [partners, setPartners] = useState<Partner[]>([])
   const [loading, setLoading] = useState(true)
 
-  const images = [Her0Inage2, Her0Inage4, Her0Inage3];
+  // const images = [Her0Inage2, Her0Inage4, Her0Inage3];
 
-  const [current, setCurrent] = useState(0);
-  const nextSlide = () => {
-    setCurrent((current + 1) % images.length);
-  };
+  // const [current, setCurrent] = useState(0);
+  // const nextSlide = () => {
+  //   setCurrent((current + 1) % images.length);
+  // };
 
   // const prevSlide = () => {
   //   setCurrent((current - 1 + images.length) % images.length);
   // };
   const navigate = useNavigate();
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [current]);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     nextSlide();
+  //   }, 3000);
+  //   return () => clearInterval(interval);
+  // }, [current]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -201,44 +201,24 @@ const HomePage = () => {
           </section>
 
           {/* About Us Section */}
-          <section className="py-12 sm:py-16 lg:py-20 xl:py-20">
+          <section className="py-12 sm:py-16 pb-0">
             <div className="w-full">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="relative w-full max-w-156 mx-auto">
-                  {/* Image */}
-                  <div className="overflow-hidden rounded-lg">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900 font-[Space] mb-3">About Us</h2>
+              <div className="flex flex-row gap-10 items-center">
+                <div className="w-full max-w-156 mx-auto">
+                  <div className="overflow-hidden p-4 border border-black">
                     <img
-                      src={images[current]}
-                      alt={`Slide ${current + 1}`}
-                      className="w-full h-96 sm:h-112 lg:h-full object-cover transition-transform duration-500 hover:scale-105"
+                      src={Her0Inage4}
+                      className="h-30 object-cover transition-transform duration-500 hover:scale-105"
                     />
                   </div>
-                  {/* Dots */}
-                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-                    {images.map((_, index) => (
-                      <span
-                        key={index}
-                        className={`w-3 h-3 rounded-full cursor-pointer ${
-                          index === current ? "bg-red-600" : "bg-white/60"
-                        }`}
-                        onClick={() => setCurrent(index)}
-                      ></span>
-                    ))}
-                  </div>
                 </div>
-                <div className="space-y-4 sm:space-y-5 lg:space-y-6">
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900">About Us</h2>
-                  <p className="text-[17px] lg:text-md text-black leading-relaxed font-[inter] text-justify">
-                    MyIT Consult Ltd is a dynamic social enterprise and development consultancy firm, Nigerian-rooted with an expanding African footprint, dedicated to fostering sustainable and inclusive development. Established in 2016, we specialize in delivering meticulous data, information management services and evidence driven analysis, particularly within crisis, disaster, and displacement contexts.
+                <div className="space-y-4">
+                  <p className="text-[17px] lg:text-[19px] text-black leading-relaxed font-[inter] text-justify">
+                    MyIT Consult Ltd is a dynamic social enterprise and development consultancy firm established in 2016 with an expanding African footprint. We provide evidence-based data, research, and information management services particularly across crisis, disaster, and displacement contexts to support effective decision-making, policy influence, and inclusive development outcomes.
                   </p>
-                  <p className="text-[17px] lg:text-md text-black leading-relaxed text-justify">
-                    We work with a muliti-disciplinary team of strategists, data analysts, technologists, and trainers to co-design practical solutions that translate ideas into actionable interventions. Through tailored insights and applied expertise, we empower clients make informd decisions, deliver precise assistance to vulnerable populations, shape policy, strengthen institutions, and drive societal development by equipping individuals and organisations with essential knowledge, information, and skills. 
-                  </p>
-                  <p className="text-[17px] lg:text-md text-black leading-relaxed text-justify">
-                    We serve a wide array of clients, including individuals, agencies, government ministries, UN bodies, development organizations, NGOs, foundations, and businesses. Our expertise spans-data collection and management, Monitoring, Evaluation, Research and Learning (MERL), Third-Party Monitoring (TPM), institutional development and support, capacity building an training, and Information Technology solutions. We also deliver policy innovation, leadership development, and digital transformation services, with innnovation at the core of every engagement
-                  </p>
-                  <p className="text-[17px] lg:text-md text-black leading-relaxed text-justify">
-                    Through platforms like the MYIT Digital Academy and MYIT Insight Series, we equip professionals and institutions with the tools, skills, and frameworks they need to thrive in a dynamic world, strengthening performance, accelerating impact, and enabling sustainable results.
+                  <p className="text-[17px] lg:text-[19px] text-black leading-relaxed text-justify">
+                    With a multi-disciplinary team of strategists, data analyst, technologists, and trainers, we deliver MERL, Third-Party Monitoring, institutional strengthening, capacity building, and digital solutions driven by innovation and designed for real-world impact. Through the MyIT Digital Academy and MyIT Insight Series, we equip professionals and institutions to lead, adapt, and perform in a rapidly changing world.
                   </p>
 
                   <Link to={'/about-us'}>
@@ -253,9 +233,9 @@ const HomePage = () => {
 
 
           {/* What We Do Section */}
-          <section className="py-12 sm:py-16 lg:py-20 xl:py-24">
+          <section className="">
             <div className="w-full">
-              <div className="text-center mb-10 sm:mb-12 lg:mb-16 xl:mb-20">
+              <div className="text-center mb-10 sm:mb-12 lg:mb-16">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900 mb-3">What We Do</h2>
                 <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto font-[inter]">
                   We help organisations strengthen their systems, build capacity, and deliver better results through research and practical digital solutions
