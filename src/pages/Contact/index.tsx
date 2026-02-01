@@ -1,6 +1,5 @@
 import Footer from '@/components/common/Footer';
 import Header from '@/components/common/Header';
-import Map from '../../assets/images/ContactUsMap.webp'
 import { useState } from 'react';
 
 const ContactPage = () => {

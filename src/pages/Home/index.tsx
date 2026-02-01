@@ -3,9 +3,7 @@ import Header from '../../components/common/Header'
 import Footer from '../../components/common/Footer'
 import Container from '../../components/common/Container'
 import HeroImage from '../../assets/images/heroimmmmg.svg'
-import Her0Inage3 from '../../assets/images/HeroImage3.png'
 import Her0Inage4 from '../../assets/images/HeroImage4.png'
-import Her0Inage2 from '../../assets/images/HeroImage2.svg'
 import oval from '../../assets/images/Oval.svg'
 import Map from '../../assets/images/HugeGlobal.svg'
 import { PiHandshakeFill } from 'react-icons/pi'
@@ -201,28 +199,38 @@ const HomePage = () => {
           </section>
 
           {/* About Us Section */}
-          <section className="py-12 sm:py-16 pb-0">
+          <section className="py-8 sm:py-16 pb-10">
             <div className="w-full">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900 font-[Space] mb-3">About Us</h2>
-              <div className="flex flex-row gap-10 items-center">
-                <div className="w-full max-w-156 mx-auto">
-                  <div className="overflow-hidden p-4 border border-black">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900 font-[Space] mb-4">
+                About Us
+              </h2>
+
+              {/* Mobile: column | Desktop: row */}
+              <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 items-start sm:items-center">
+                
+                {/* Image */}
+                <div className="w-full sm:max-w-156 mx-auto">
+                  <div className="overflow-hidden p-2 sm:p-4 border border-black">
                     <img
                       src={Her0Inage4}
-                      className="h-30 object-cover transition-transform duration-500 hover:scale-105"
+                      className="w-full h-48 sm:h-30 object-cover transition-transform duration-500 hover:scale-105"
+                      alt="About Us"
                     />
                   </div>
                 </div>
+
+                {/* Text */}
                 <div className="space-y-4">
-                  <p className="text-[17px] lg:text-[19px] text-black leading-relaxed font-[inter] text-justify">
+                  <p className="text-[16px] sm:text-[17px] lg:text-[19px] text-black leading-relaxed font-[inter] text-left sm:text-justify">
                     MyIT Consult Ltd is a dynamic social enterprise and development consultancy firm established in 2016 with an expanding African footprint. We provide evidence-based data, research, and information management services particularly across crisis, disaster, and displacement contexts to support effective decision-making, policy influence, and inclusive development outcomes.
                   </p>
-                  <p className="text-[17px] lg:text-[19px] text-black leading-relaxed text-justify">
-                    With a multi-disciplinary team of strategists, data analyst, technologists, and trainers, we deliver MERL, Third-Party Monitoring, institutional strengthening, capacity building, and digital solutions driven by innovation and designed for real-world impact. Through the MyIT Digital Academy and MyIT Insight Series, we equip professionals and institutions to lead, adapt, and perform in a rapidly changing world.
+
+                  <p className="text-[16px] sm:text-[17px] lg:text-[19px] text-black leading-relaxed text-left sm:text-justify">
+                    With a multi-disciplinary team of strategists, data analyst, technologists, and trainers, we deliver MERL, Third-Party Monitoring, institutional strengthening, capacity building, and digital solutions driven by innovation and designed for real-world impact.
                   </p>
 
-                  <Link to={'/about-us'}>
-                    <button className="bg-[#e4010c] text-white px-12  py-2 rounded-2xl hover:bg-red-700 active:scale-95 transition-all duration-200 cursor-pointer text-sm sm:text-sm font-[inter] font-medium shadow-md hover:shadow-lg w-fit">
+                  <Link to="/about-us">
+                    <button className="bg-[#e4010c] text-white px-10 sm:px-12 py-2 rounded-2xl hover:bg-red-700 active:scale-95 transition-all duration-200 cursor-pointer text-sm font-[inter] font-medium shadow-md hover:shadow-lg w-fit">
                       Learn More
                     </button>
                   </Link>
@@ -230,6 +238,7 @@ const HomePage = () => {
               </div>
             </div>
           </section>
+
 
 
           {/* What We Do Section */}

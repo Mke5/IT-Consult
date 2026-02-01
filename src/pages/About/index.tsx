@@ -3,7 +3,6 @@ import Header from '../../components/common/Header'
 import Footer from '../../components/common/Footer';
 import { PiHandshakeFill } from 'react-icons/pi';
 import Container from '../../components/common/Container';
-import Hero1 from '../../assets/images/image20.webp'
 import image2 from '../../assets/images/AboutUs.png'
 import userImage1 from '../../assets/images/userImage.png'
 import CheckProjects from '@/components/common/CheckProjects';
