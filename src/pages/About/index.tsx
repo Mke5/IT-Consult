@@ -54,19 +54,19 @@ const AboutPage = () => {
                     <span>Empowering Organisations. Driving </span>
                     <span className="text-[#e4010c]">Impact</span>
                   </h1>
-                  <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed font-[Sora] text-justify">
+                  <p className="text-[16px] sm:text-[17px] lg:text-[19px] text-black leading-relaxed font-[inter] text-left sm:text-justify">
                     MyIT Consult Ltd is a dynamic social enterprise and development consultancy firm, Nigerian-rooted with an expanding African footprint, dedicated to fostering sustainable and inclusive development. Established in 2016, we specialize in delivering meticulous data, information management services and evidence driven analysis, particularly within crisis, disaster, and displacement contexts.
                   </p>
                 </div>
-                <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed font-[Sora] text-justify">
+                <p className="text-[16px] sm:text-[17px] lg:text-[19px] text-black leading-relaxed font-[inter] text-left sm:text-justify">
                   We work with a muliti-disciplinary team of strategists, data analysts, technologists, and trainers to co-design practical solutions that translate ideas into actionable interventions. Through tailored insights and applied expertise, we empower clients make informd decisions, deliver precise assistance to vulnerable populations, shape policy, strengthen institutions, and drive societal development by equipping individuals and organisations with essential knowledge, information, and skills. 
                 </p>
 
-                <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed font-[Sora] text-justify">
+                <p className="text-[16px] sm:text-[17px] lg:text-[19px] text-black leading-relaxed font-[inter] text-left sm:text-justify">
                   We serve a wide array of clients, including individuals, agencies, government ministries, UN bodies, development organizations, NGOs, foundations, and businesses. Our expertise spans-data collection and management, Monitoring, Evaluation, Research and Learning (MERL), Third-Party Monitoring (TPM), institutional development and support, capacity building an training, and Information Technology solutions. We also deliver policy innovation, leadership development, and digital transformation services, with innnovation at the core of every engagement
                 </p>
 
-                <p className="text-[17px] sm:text-[20px] lg:text-md text-black leading-relaxed font-[Sora] text-justify">
+                <p className="text-[16px] sm:text-[17px] lg:text-[19px] text-black leading-relaxed font-[inter] text-left sm:text-justify">
                   Through platforms like the MYIT Digital Academy and MYIT Insight Series, we equip professionals and institutions with the tools, skills, and frameworks they need to thrive in a dynamic world, strengthening performance, accelerating impact, and enabling sustainable results.
                 </p>
               </div>
@@ -80,12 +80,13 @@ const AboutPage = () => {
               <div className="flex flex-col gap-10 sm:gap-10 lg:gap-[90px] items-center">
 
                 {/* Mission + Vision */}
-                <div className="w-full lg:w-[90%] flex flex-col lg:flex-row justify-center items-start gap-4 lg:gap-12">
+                <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-4 lg:gap-12">
 
                   {/* Mission */}
-                  <div className="w-full lg:flex-1 flex flex-col gap-2">
-                    <h2 className="text-[22px] sm:text-[26px] lg:text-[28px] font-medium text-[#282829] font-['Space_Grotesk'] leading-[28px] sm:leading-[32px] lg:leading-[36px]">
-                      Our Mission
+                  <div className="w-full lg:w-[40%] flex flex-col gap-2">
+                    <h2 className="mt-3 text-[25px] sm:text-[32px] font-bold text-[#0e2a46] font-['Poppins'] leading-[30px] sm:leading-[38px] lg:leading-[49px] capitalize w-full">
+                      <span>Our </span>
+                      <span className="text-[#e4010c]">Mission</span>
                     </h2>
                     <p className="text-[17px] sm:text-[20px] lg:text-md font-normal text-black font-[inter] leading-6 tracking-[0.5px] text-justify mb-6">
                       To deliver evidence-driven research, MERL, policy innovation, institutional strengthening and digital transformation solutions that enable smarter decisions, stronger systems, and sustainable results across development, humanitarian, and privat sector enviroments.
@@ -93,9 +94,10 @@ const AboutPage = () => {
                   </div>
 
                   {/* Vision */}
-                  <div className="w-full lg:w-[48%] flex flex-col gap-2">
-                    <h2 className="text-[22px] sm:text-[30px] font-medium text-[#282829] font-['Space_Grotesk'] leading-[28px] sm:leading-[32px] lg:leading-[36px]">
-                      Our Vision
+                  <div className="w-full lg:w-[40%] flex flex-col gap-2">
+                    <h2 className="mt-3 text-[25px] sm:text-[32px] font-bold text-[#0e2a46] font-['Poppins'] leading-[30px] sm:leading-[38px] lg:leading-[49px] capitalize w-full">
+                      <span>Our </span>
+                      <span className="text-[#e4010c]">Vision</span>
                     </h2>
                     <p className="text-[17px] sm:text-[20px] lg:text-md font-normal text-black font-[inter] leading-6 tracking-[0.5px] text-justify mb-6">
                       To be a leading African force for evidence, innovation, and institutional excellence transforming data into action and enabling sustainable progress for all.
